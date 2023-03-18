@@ -13,8 +13,6 @@ int main(int argc, char* argv[])
 
     std::locale::global(std::locale("en_US.UTF-8"));
 
-    
-
     if (argc < 3)
     {
         std::cerr << "Uso: " << argv[0] << "-(a, o, x) <caminho_do_arquivo>" << std::endl;
@@ -35,7 +33,7 @@ int main(int argc, char* argv[])
         
     } else {
 
-        std::cerr << "Uso: " << argv[0] << "-(a ou o) <caminho_do_arquivo>" << std::endl;
+        std::cerr << "Uso: " << argv[0] << "-(a ou -o) <caminho_do_arquivo>" << std::endl;
         return 1;
 
     }
