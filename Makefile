@@ -13,7 +13,7 @@ EXECUTABLE	:= hvc
 all: $(BIN)/$(EXECUTABLE)
 
 run: clean all
-	./$(BIN)/$(EXECUTABLE) ./example.hvs
+	./$(BIN)/$(EXECUTABLE) ./example/example.hvs
 
 $(BIN)/$(EXECUTABLE): $(SRC)/*.cpp
 	$(CXX) $(CXX_FLAGS) -I$(INCLUDE) -L$(LIB) $^ -o $@ $(LIBRARIES)
