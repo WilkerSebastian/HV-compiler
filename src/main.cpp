@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <vector>
 #include <string>
 #include <string.h>
 #include <locale>
@@ -8,8 +9,16 @@
 #define INTERPRRETER 1
 #define PARSER 2
 
-int main(int argc, char* argv[])
-{
+template<typename T, size_t N>
+size_t array_size(T(&)[N]) {
+    return N;
+}
+
+using std::cout, std::cerr, std::string;
+
+std::vector<string> parseVectorString(char * args[], int length);
+
+int main(int argc, char* argv[]) {
 
     std::locale::global(std::locale("en_US.UTF-8"));
 
@@ -33,7 +42,7 @@ int main(int argc, char* argv[])
         
     } else {
 
-        std::cerr << "Uso: " << argv[0] << "-(a ou -o) <caminho_do_arquivo>" << std::endl;
+        cerr << "Uso: " << argv[0] << "-(a ou -o) <caminho_do_arquivo>" << std::endl;
         return 1;
 
     }
@@ -59,4 +68,19 @@ int main(int argc, char* argv[])
     file.close();
 
     return 0;
+}
+
+std::vector<string> parseVectorString(char * args[], int length) {
+
+    std::vector<string> resultados;
+
+    for (int i = 0; i < length; i++) {
+
+        string resultado(args[i]);
+        resultados.push_back(resultado);
+
+    }
+
+    return resultados;
+
 }
