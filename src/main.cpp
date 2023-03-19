@@ -19,7 +19,6 @@ using std::cout, std::cerr, std::string, std::vector;
 
 // declaração das funções  
 vector<string> parseVectorString(char * args[], int length);
-string lerScript(string path);
 int8_t decodeArgs(vector<string> args);
 
 int main(int argc, char* argv[]) {
@@ -82,31 +81,6 @@ vector<string> parseVectorString(char * args[], int length) {
     }
 
     return resultados;
-
-}
-
-string lerScript(string path) {
-
-    std::ifstream input_file(path);
-
-    string content;
-    string line;
-
-    if (input_file.is_open()) {
-
-        while (std::getline(input_file, line)) {
-            content += line + "\n";
-        }
-
-        input_file.close();
-
-    } else {
-
-        cerr << "Erro ao abrir o script do caminho " << path << "\n";
-        exit(1);
-    }
-
-    return content;
 
 }
 
