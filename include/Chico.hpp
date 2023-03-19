@@ -3,21 +3,14 @@
 
 #include <stdint.h>
 #include <string>
+#include "./PortaCartoes.hpp"
 
 class Chico {
 
-    private:
-
-        uint8_t modo;
-        std::string script;
 
     public:
 
-        Chico(uint8_t modo, std::string script);
-
-        void executar();
-
-        void parser();
+        uint16_t lerCartao(PortaCartoes pc , std::string);
 
 };
 

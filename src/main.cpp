@@ -5,6 +5,7 @@
 #include <string>
 #include <string.h>
 #include <locale>
+#include "../include/HVM.hpp"
 
 // definição para uso recorrentes do std
 using std::cout, std::cerr, std::string, std::vector;
@@ -19,15 +20,19 @@ using std::cout, std::cerr, std::string, std::vector;
 
 // declaração das funções  
 vector<string> parseVectorString(char * args[], int length);
-int8_t decodeArgs(vector<string> args);
+int decodeArgs(vector<string> args);
 
 int main(int argc, char* argv[]) {
 
-    std::locale::global(std::locale("en_US.UTF-8"));
+    cout << "\n";
+
+    std::locale::global(std::locale("pt_BR.UTF-8"));
 
     vector<string> args = parseVectorString(argv, argc);
 
-    int8_t code = decodeArgs(args);
+    int code = decodeArgs(args);
+
+    HVM hvm;
 
     switch(code) {
 
@@ -44,6 +49,8 @@ int main(int argc, char* argv[]) {
 
         break;
         case PARSER:
+
+            hvm.boot(PARSER, args[2]);
 
         break;
         case HELPER:
@@ -84,25 +91,23 @@ vector<string> parseVectorString(char * args[], int length) {
 
 }
 
-int8_t decodeArgs(vector<string> args) {
+int decodeArgs(vector<string> args) {
 
-    int8_t code = ERROR;
+    int code = ERROR;
 
     if(args.size() == 2) {
 
         code = args[1].compare("--help") == 0 ? HELPER : INTERPRETER;
 
-        cout << code;
-
     }
     else if(args.size() == 3) {
 
-        if (args[1].compare("-o")) {
+        if (args[1].compare("-o") == 0) {
             
             code = ASSEMBLY;
 
         } 
-        else if(args[1].compare("-p")) {
+        else if(args[1].compare("-p") == 0) {
 
             code = PARSER;
 
