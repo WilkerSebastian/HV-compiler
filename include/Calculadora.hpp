@@ -7,11 +7,13 @@ class Calculadora {
 
     private:
 
-        uint16_t acumulador;
+        uint16_t acumulador = 0;
 
     public:
 
         void soma(uint16_t valor);
+
+        void acumular(uint16_t valor);
 
         uint16_t getAcumulador();
 

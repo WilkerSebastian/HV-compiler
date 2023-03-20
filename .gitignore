@@ -1,3 +1,4 @@
 .vscode
-bin/*
 parser.ahv
+folha_saida.txt
+bin/*

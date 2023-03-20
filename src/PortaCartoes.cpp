@@ -4,9 +4,16 @@
 #include <string>
 #include <fstream>
 
-uint16_t PortaCartoes::lerCartao(uint8_t endereco) {
+uint16_t PortaCartoes::lerCartao() {
 
-     std::ifstream input_file("./cartoes/cartao" + std::to_string(endereco) + ".ct");
+    if(this->pilha >= 100) {
+
+        std::cerr << "ultra passou o limite de 100 cartões\n";
+        exit(1);
+
+    }
+
+     std::ifstream input_file("./cartoes/cartao" + std::to_string(pilha) + ".ct");
 
      std::string line;
 
@@ -17,9 +24,13 @@ uint16_t PortaCartoes::lerCartao(uint8_t endereco) {
         input_file.close();
 
     } else {
-        std::cerr << "Erro ao abrir o cartao " << endereco << "\n";
+        std::cerr << "Erro ao abrir o cartão " << "./cartoes/cartao" + std::to_string(pilha) + ".ct" << "\n";
         exit(1);
     }
+
+    this->pilha++;
+
+    this->historico.append(" " + line);
 
     return std::stoi(line);
 

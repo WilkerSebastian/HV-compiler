@@ -47,6 +47,8 @@ int main(int argc, char* argv[]) {
         break;
         case ASSEMBLY:
 
+            hvm.boot(ASSEMBLY, args[2]);
+
         break;
         case PARSER:
 
