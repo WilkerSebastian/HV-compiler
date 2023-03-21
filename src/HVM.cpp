@@ -8,8 +8,6 @@
 #include <sstream>
 #include <stdint.h>
 #include <string>
-#include <vcruntime.h>
-
 
 #define INTERPRETER 0
 #define ASSEMBLY 1
