@@ -1,12 +1,10 @@
 #include "../include/HVM.hpp"
 #include "../include/instructionshv.hpp"
-#include "../include/FolhaDeSaida.hpp"
-#include <codecvt>
 #include <fstream>
 #include <iostream>
 #include <regex>
 #include <sstream>
-#include <stdint.h>
+#include <cstdint>
 #include <string>
 
 #define INTERPRETER 0
@@ -64,62 +62,79 @@ void HVM::parser(std::string script) {
 
 void HVM::assembly(std::string script) {
 
-    FolhaDeSaida fs;
-
-    std::string instrucao = this->chico.carregarEPI(script);
+    this->chico.carregarGaveteiro(this->gaveteiro, script);
 
     for(size_t i = 0;i < 100;i++) {
 
-        uint8_t EE = std::stoi(instrucao.substr(1, 2));
+        std::string instrucao = this->chico.proximaInstrucao(this->gaveteiro, this->epi);
 
-        if (carregueCAC(instrucao)) {
+        uint16_t EE = std::stoi(instrucao.substr(1, 2));
 
-            this->chico.carregue(EE);
+        if (copieValorGavetaEE(instrucao)) {
+
+            this->chico.cpEE(this->calculadora, this->gaveteiro, EE);
 
         } 
-        else if (armazeneCAC(instrucao)) {
+        else if (copieValorAC(instrucao)) {
 
-            this->chico.armazene(EE);
+            this->chico.cpAC(this->calculadora, this->gaveteiro, EE);
         }
-        else if (leiaCartaoGuarde(instrucao)) {
+        else if (someEEaoAC(instrucao)) {
 
-            this->chico.lerCartao(EE);
-
-        } 
-        else if (imprima(instrucao)) {
-
-            this->chico.imprime(EE);
+            this->chico.some(this->calculadora, this->gaveteiro,EE);
 
         } 
-        else if (someCEE(instrucao)) {
+        else if (subtraiaACoEE(instrucao)) {
 
-            this->chico.some(EE);
-
-        } 
-        else if (seCACdiferenteEE(instrucao)) {
-
-            this->chico.se(EE);
+            this->chico.subtraia(this->calculadora, this->gaveteiro,EE);
 
         } 
-        else if (pare(instrucao)) {
+        else if (multipliqueACporEE(instrucao)) {
 
-            this->escreverArquivo("./folha_saida.txt", fs.getLog());
-
-            this->chico.pare();
+            this->chico.multiplique(this->calculadora, this->gaveteiro,EE);
 
         } 
+        else if (dividaACporEE(instrucao)) {
+
+            this->chico.divida(this->calculadora, this->gaveteiro,EE);
+
+        } 
+        else if (seACmaiorVaParaEE(instrucao)) {
+
+            this->chico.se(this->calculadora, this->epi, EE);
+
+        } 
+        else if(leiaValorGuardaGavetaEE(instrucao)) {
+
+          this->chico.leia(this->gaveteiro, this->portaCartoes, EE);
+
+        }
+        else if(escrevaEEnaSaida(instrucao)) {
+
+          this->chico.escreva(this->gaveteiro, EE);
+
+        }
+        else if(vaParaEE(instrucao)) {
+
+          this->chico.para(this->epi, EE);
+
+        }
+        else if(ACrecebeConstante(instrucao)) {
+
+          this->chico.constante(this->calculadora, EE);
+
+        }
+        else if(fimDoPrograma(instrucao)) {
+
+          this->chico.pare();
+
+        }
         else {
 
-            this->escreverArquivo("./folha_saida.txt", fs.getLog());
-
-            std::cerr << "\nerro de sintaxe! \'" << instrucao << "\'\n";
+            std::cerr << "\nerro de sintaxe! comando " << instrucao << "\n";
             exit(1);
 
         }
-
-        fs.anotar(this->chico);
-      
-        instrucao = this->chico.proximaInstrucao();
 
     }
 
@@ -142,6 +157,8 @@ std::string HVM::assembler(std::string comando) {
   while (it != end) {
     numbers.push_back(*it++);
   }
+
+  /*
 
   if (carregueCAC(comando)) {
 
@@ -189,7 +206,10 @@ std::string HVM::assembler(std::string comando) {
 
     std::cerr << "\nerro de sintaxe! " << comando << "\n";
     exit(1);
+
   }
+
+  */
 
   return asmhv;
 }

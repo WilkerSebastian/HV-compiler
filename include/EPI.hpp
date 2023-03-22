@@ -10,19 +10,13 @@ class EPI {
 
     private:
 
-        uint8_t indexer = 0;
-
-        std::string registros[100];
+        uint16_t valor = 0;
 
     public:
 
-        void registrar(uint8_t registro, std::string instrucao);
+        void registrar(uint16_t registro);
 
-        void gotoRegistro(uint8_t endereco);
-
-        std::string lerRegistro();
-
-        uint8_t getindexer();
+        uint16_t lerRegistro();
 
 };
 

@@ -1,37 +1,31 @@
 #include "../include/Gaveteiro.hpp"
 #include <iostream>
 #include <cstdlib>
-#include <stdint.h>
+#include <cstdint>
 #include <string>
 #include <system_error>
 
-void Gaveteiro::registrar(uint8_t endereco, uint16_t valor) {
+void Gaveteiro::carga(std::vector<std::string> registros) {
 
-    if (valor > 999){
-        
-        std::cerr << "Erro na escrita do gaveteiro, unico valor aceito é entre 0-999" << "\n";
-        exit(1);
+    for(uint16_t i = 0;i < registros.size();i++) {
+
+        this->registrar(i , registros[i]);
 
     }
-
-    if (endereco > 99 || endereco < 0) {
-
-        std::cerr << "Erro na escrita do gaveteiro, tentativa de registro em endereço inexistente" << "\n";
-        exit(1);
-        
-    }
-
-    this->gavetas[endereco] = valor;
-
-    this->historico.append(" " + std::to_string(static_cast<int>(endereco)) + ":" + std::to_string(valor));
 
 }
 
-uint16_t Gaveteiro::ler(uint8_t endereco) {
+void Gaveteiro::registrar(uint16_t endereco, std::string valor) {
 
-    if (endereco > 99 || endereco < 0) {
+    this->gavetas[endereco] = valor;
 
-        std::cerr << "Erro na escrita do gaveteiro, tentativa de registro em endereço inexistente" << "\n";
+}
+
+std::string Gaveteiro::ler(uint16_t endereco) {
+
+    if (endereco > 99) {
+
+        std::cerr << "Erro na leitura do gaveteiro no endereço " << endereco << " , tentativa de registro em endereço inexistente\n";
         exit(1);
         
     }

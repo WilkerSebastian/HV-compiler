@@ -1,22 +1,24 @@
 #ifndef GAVETEIRO_HPP
 #define GAVETEIRO_HPP
-#define MAX_ACCESS 100
-#include <stdint.h>
+#include <vector>
+#include <cstdint>
 #include <string>
+
+#define MAX_ACCESS 100
 
 class Gaveteiro {
 
 private:
 
-    uint16_t gavetas[MAX_ACCESS];
+    std::string gavetas[MAX_ACCESS];
 
 public:
 
-    std::string historico;
+    void carga(std::vector<std::string> registros);
 
-    void registrar(uint8_t endereco, uint16_t valor);
+    void registrar(uint16_t endereco, std::string valor);
 
-    uint16_t ler(uint8_t endereco);
+    std::string ler(uint16_t endereco);
 
 };
 

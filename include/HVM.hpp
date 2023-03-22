@@ -1,15 +1,25 @@
 #ifndef HVM_HPP
 #define HVM_HPP
 
-#include "./Chico.hpp"
-#include <stdint.h>
+#include "PortaCartoes.hpp"
+#include "Chico.hpp"
+#include "EPI.hpp"
+#include "Calculadora.hpp"
+#include "Gaveteiro.hpp"
+#include <cstdint>
 #include <string>
 
 class HVM {
 
-    public:
+    private:
 
+        EPI epi;
+        Calculadora calculadora;
+        Gaveteiro gaveteiro;
         Chico chico;
+        PortaCartoes portaCartoes;
+
+    public:
 
         void boot(int mode, std::string path);
 

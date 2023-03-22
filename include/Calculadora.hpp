@@ -13,6 +13,12 @@ class Calculadora {
 
         void soma(uint16_t valor);
 
+        void subraia(uint16_t valor);
+
+        void multiplicar(uint16_t valor);
+
+        void divida(uint16_t valor);
+
         void acumular(uint16_t valor);
 
         uint16_t getAcumulador();

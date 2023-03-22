@@ -1,37 +1,42 @@
 #ifndef CHICO_HPP
 #define CHICO_HPP
 
-#include <stdint.h>
+#include "PortaCartoes.hpp"
+#include "EPI.hpp"
+#include "Calculadora.hpp"
+#include "Gaveteiro.hpp"
+#include <cstdint>
 #include <string>
-#include "./Calculadora.hpp"
-#include "./Gaveteiro.hpp"
-#include "./EPI.hpp"
-#include "./PortaCartoes.hpp"
 
 class Chico {
 
     public:
 
-        Calculadora calculadora;
-        EPI epi;
-        Gaveteiro gaveteiro;
-        PortaCartoes portaCartoes;
+        void carregarGaveteiro(Gaveteiro &gaveteiro, std::string script);
 
-        std::string carregarEPI(std::string script);
+        std::string proximaInstrucao(Gaveteiro gaveteiro, EPI &epi);
 
-        std::string proximaInstrucao();
-
-        void lerCartao(uint8_t endereco);
+        void cpEE(Calculadora &calculadora, Gaveteiro gaveteiro, uint16_t endereco);
  
-        void armazene(uint8_t endereco);
+        void cpAC(Calculadora calculadora, Gaveteiro &gaveteiro,uint16_t endereco);
 
-        void carregue(uint8_t endereco);
+        void some(Calculadora &calculadora, Gaveteiro gaveteiro, uint16_t endereco);
 
-        void imprime(uint8_t endereco);
+        void subtraia(Calculadora &calculadora, Gaveteiro gaveteiro, uint16_t endereco);
 
-        void some(uint8_t endereco);
+        void multiplique(Calculadora &calculadora, Gaveteiro gaveteiro, uint16_t endereco);
 
-        void se(uint8_t endereco);
+        void divida(Calculadora &calculadora, Gaveteiro gaveteiro, uint16_t endereco);
+
+        void se(Calculadora calculadora, EPI &epi, uint16_t endereco);
+
+        void leia(Gaveteiro &gaveteiro, PortaCartoes pc, uint16_t endereco);
+
+        void escreva(Gaveteiro gaveteiro, uint16_t endereco);
+
+        void para(EPI &epi, uint16_t endereco);
+
+        void constante(Calculadora &calculadora, uint16_t valor);
 
         void pare();
 
