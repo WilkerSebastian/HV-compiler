@@ -121,6 +121,12 @@ void HVM::assembly(std::string script) {
         }
         else if(ACrecebeConstante(instrucao)) {
 
+          std::smatch matches;
+
+          std::regex_search(instrucao, matches , std::regex("\\d{1,3}$"));
+
+          EE = std::stoi(matches[0]);
+
           this->chico.constante(this->calculadora, EE);
 
         }
