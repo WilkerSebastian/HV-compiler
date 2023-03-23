@@ -111,7 +111,7 @@ void HVM::assembly(std::string script) {
         }
         else if(escrevaEEnaSaida(instrucao)) {
 
-          this->chico.escreva(this->gaveteiro, EE);
+          this->chico.escreva(this->gaveteiro, this->folhaDeSaida ,EE);
 
         }
         else if(vaParaEE(instrucao)) {
@@ -240,7 +240,7 @@ std::string HVM::lerArquivo(std::string path, std::string extensao) {
 
   std::ifstream arquivo(path, std::ios::in | std::ios::out | std::ios::binary);
   if (!arquivo.is_open()) {
-    std::cerr << "Nao foi possivel abrir o arquivo. \n";
+    std::cerr << "Nao foi possivel abrir o arquivo " << path << "\n";
     exit(1);
   }
 

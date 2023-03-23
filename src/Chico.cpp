@@ -117,11 +117,11 @@ void Chico::leia(Gaveteiro &gaveteiro, PortaCartoes pc, uint16_t endereco) {
 
 }
 
-void Chico::escreva(Gaveteiro gaveteiro, uint16_t endereco) {
+void Chico::escreva(Gaveteiro gaveteiro, FolhaDeSaida fs , uint16_t endereco) {
 
     std::string output = gaveteiro.ler(endereco);
 
-    std::cout << "\n" << output << "\n";
+    fs.imprimir(output);
 
 }
 

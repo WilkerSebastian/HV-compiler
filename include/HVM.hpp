@@ -2,6 +2,7 @@
 #define HVM_HPP
 
 #include "PortaCartoes.hpp"
+#include "FolhaDeSaida.hpp"
 #include "Chico.hpp"
 #include "EPI.hpp"
 #include "Calculadora.hpp"
@@ -18,6 +19,7 @@ class HVM {
         Gaveteiro gaveteiro;
         Chico chico;
         PortaCartoes portaCartoes;
+        FolhaDeSaida folhaDeSaida;
 
     public:
 

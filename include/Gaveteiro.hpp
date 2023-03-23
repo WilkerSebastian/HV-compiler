@@ -1,5 +1,6 @@
 #ifndef GAVETEIRO_HPP
 #define GAVETEIRO_HPP
+#include <stdint.h>
 #include <vector>
 #include <cstdint>
 #include <string>
@@ -10,6 +11,7 @@ class Gaveteiro {
 
 private:
 
+    std::vector<uint16_t> restritos;
     std::string gavetas[MAX_ACCESS];
 
 public:

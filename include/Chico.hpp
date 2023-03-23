@@ -3,6 +3,7 @@
 
 #include "PortaCartoes.hpp"
 #include "EPI.hpp"
+#include "FolhaDeSaida.hpp"
 #include "Calculadora.hpp"
 #include "Gaveteiro.hpp"
 #include <cstdint>
@@ -32,7 +33,7 @@ class Chico {
 
         void leia(Gaveteiro &gaveteiro, PortaCartoes pc, uint16_t endereco);
 
-        void escreva(Gaveteiro gaveteiro, uint16_t endereco);
+        void escreva(Gaveteiro gaveteiro, FolhaDeSaida fs, uint16_t endereco);
 
         void para(EPI &epi, uint16_t endereco);
 
