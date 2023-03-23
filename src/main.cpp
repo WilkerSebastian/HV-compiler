@@ -15,16 +15,15 @@ using std::cout, std::cerr, std::string, std::vector;
 #define ASSEMBLY 1
 #define PARSER 2
 #define HELPER 3
+#define VER 4
 #define ERROR -1
-#define VERSION "0.9.2"
+#define VERSION "0.9.8"
 
 // declaração das funções  
 vector<string> parseVectorString(char * args[], int length);
 int decodeArgs(vector<string> args);
 
 int main(int argc, char* argv[]) {
-
-    cout << "\n";
 
     std::locale::global(std::locale("pt_BR.UTF-8"));
 
@@ -55,6 +54,11 @@ int main(int argc, char* argv[]) {
             hvm.boot(PARSER, args[2]);
 
         break;
+        case VER:
+
+            cout << "\nHVC v" << VERSION << "\n";
+
+        break;
         case HELPER:
 
             cout << "\nHV compiler \n\n"
@@ -69,7 +73,8 @@ int main(int argc, char* argv[]) {
                  << "hvc <caminho_do_arquivo_hvs> // compila em tempo de execução o HV script \n"
                  << "hvc -o <caminho_do_arquivo_ahv> // compila em tempo de execução o assembly HV \n"
                  << "hvc -p <caminho_do_arquivo_hvs> // transpila o código hvs para ahv\n"
-                 << "hvc --help // para mostrar o guia do hvc\n";
+                 << "hvc --help // para mostrar o guia do hvc\n"
+                 << "hvc --version // para mostrar a versão do hvc\n";
 
         break;
     
@@ -99,7 +104,7 @@ int decodeArgs(vector<string> args) {
 
     if(args.size() == 2) {
 
-        code = args[1].compare("--help") == 0 ? HELPER : INTERPRETER;
+        code = args[1].compare("--help") == 0 ? HELPER : args[1].compare("--version") == 0 ? VER : INTERPRETER;
 
     }
     else if(args.size() == 3) {
