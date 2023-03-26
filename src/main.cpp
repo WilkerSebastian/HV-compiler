@@ -16,12 +16,16 @@ using std::cout, std::cerr, std::string, std::vector;
 #define PARSER 2
 #define HELPER 3
 #define VER 4
+#define DEBUG 5
 #define ERROR -1
-#define VERSION "0.9.8"
+#define VERSION "1.0.0"
 
 // declaração das funções  
 vector<string> parseVectorString(char * args[], int length);
 int decodeArgs(vector<string> args);
+
+// variavel global para argumento extra
+int extra;
 
 int main(int argc, char* argv[]) {
 
@@ -32,6 +36,8 @@ int main(int argc, char* argv[]) {
     int code = decodeArgs(args);
 
     HVM hvm;
+
+    hvm.setDebug(extra == DEBUG);
 
     switch(code) {
 
@@ -70,11 +76,11 @@ int main(int argc, char* argv[]) {
                  << "para ver melhor como usar o compilador acesse\n"
                  << "github: https://github.com/WilkerSebastian/HV-compiler\n\n\n"
                  << "Comandos\n\n"
-                 << "hvc <caminho_do_arquivo_hvs> // compila em tempo de execução o HV script \n"
+                 << "(não disponivel) hvc <caminho_do_arquivo_hvs> // compila em tempo de execução o HV script \n"
                  << "hvc -o <caminho_do_arquivo_ahv> // compila em tempo de execução o assembly HV \n"
-                 << "hvc -p <caminho_do_arquivo_hvs> // transpila o código hvs para ahv\n"
-                 << "hvc --help // para mostrar o guia do hvc\n"
-                 << "hvc --version // para mostrar a versão do hvc\n";
+                 << "(não disponivel) hvc -p <caminho_do_arquivo_hvs> // transpila o código hvs para ahv\n"
+                 << "hvc (--help ou -h) // para mostrar o guia do hvc\n"
+                 << "hvc (--version ou -v) // para mostrar a versão do hvc\n";
 
         break;
     
@@ -102,9 +108,30 @@ int decodeArgs(vector<string> args) {
 
     int code = ERROR;
 
+    if(args[args.size() -1].compare("--debug") == 0) {
+
+        extra = DEBUG;
+        args.pop_back();
+
+    }
+
     if(args.size() == 2) {
 
-        code = args[1].compare("--help") == 0 ? HELPER : args[1].compare("--version") == 0 ? VER : INTERPRETER;
+        if(args[1].compare("--version") == 0 || args[1].compare("-v") == 0) {
+
+            code = VER;
+
+        }
+        else if(args[1].compare("--help") == 0 || args[1].compare("-h") == 0) {
+
+            code = HELPER;
+            
+        }
+        else {
+
+            code = INTERPRETER;
+            
+        }
 
     }
     else if(args.size() == 3) {

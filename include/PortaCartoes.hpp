@@ -7,6 +7,8 @@ class PortaCartoes {
 
     public:
 
+        bool debug;
+
         uint16_t lerCartao();
 
 };

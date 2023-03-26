@@ -21,15 +21,17 @@ ifeq ($(PLATFORM),mac)
 	CXX_FLAGS += -DMACOS
 endif
 
-all: $(BIN)/$(EXECUTABLE)
+$(shell mkdir bin)
+
+all: clear $(BIN)/$(EXECUTABLE)
 
 $(BIN)/$(EXECUTABLE): $(SRC)/*.cpp 
 	$(CXX) $(CXX_FLAGS) -I$(INCLUDE) -L$(LIB) $^ -o $@ $(LIBRARIES)
 
-run: clean all
+run: all
 	./$(BIN)/$(EXECUTABLE)
 
-clean:
+clear:
 	-rm $(BIN)/*
 
 .PHONY: win linux mac all

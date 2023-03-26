@@ -10,6 +10,13 @@ uint16_t PortaCartoes::lerCartao() {
     std::cout << "\nInforme o valor de 3 algarimos do cartão: ";
     std::getline(std::cin, input);
 
+    if(this->debug) {
+
+        std::cout << "ENTRADA DE CARTÂO\n"
+        << "valor recebido: " << input << "\n";
+
+    }
+
     int valor = std::stoi(input);
 
     if(valor < 0 || valor > 999) {

@@ -10,10 +10,12 @@ class Calculadora {
         uint16_t acumulador = 0;
 
     public:
+    
+        bool debug;
 
         void soma(uint16_t valor);
 
-        void subraia(uint16_t valor);
+        void subrtaia(uint16_t valor);
 
         void multiplicar(uint16_t valor);
 

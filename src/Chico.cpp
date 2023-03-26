@@ -79,7 +79,7 @@ void Chico::subtraia(Calculadora &calculadora, Gaveteiro gaveteiro, uint16_t end
 
     uint16_t valor = static_cast<uint16_t>(std::stoi(gaveteiro.ler(endereco)));
 
-    calculadora.subraia(valor);
+    calculadora.subrtaia(valor);
 
 }
 
@@ -101,6 +101,12 @@ void Chico::divida(Calculadora &calculadora, Gaveteiro gaveteiro, uint16_t ender
 
 void Chico::se(Calculadora calculadora, EPI &epi, uint16_t endereco) {
 
+    if(this->debug) {
+
+        std::cout << "se (" << calculadora.getAcumulador() << " > 0): " << (calculadora.getAcumulador() > 0 ? "verdadeiro" : "falso") << "\n"
+        << "EPI redirecionado para " << endereco << "\n";
+
+    }
     if(calculadora.getAcumulador() > 0) {
 
         epi.registrar(endereco);
@@ -126,6 +132,8 @@ void Chico::escreva(Gaveteiro gaveteiro, FolhaDeSaida fs , uint16_t endereco) {
 }
 
 void Chico::para(EPI &epi, uint16_t endereco) {
+
+    std::cout << "EPI redirecionado para " << endereco << "\n";
  
     epi.registrar(endereco);
 
@@ -139,7 +147,11 @@ void Chico::constante(Calculadora &calculadora, uint16_t valor) {
 
 void Chico::pare() {
 
-    std::cout << "\nPrograma finalizado com sucesso\n";
+    if(this->debug) {
+
+        std::cout << "\nPrograma finalizado com sucesso\n";
+
+    }
 
     exit(0);
 

@@ -16,6 +16,8 @@ private:
 
 public:
 
+    bool debug;
+
     void carga(std::vector<std::string> registros);
 
     void registrar(uint16_t endereco, std::string valor);

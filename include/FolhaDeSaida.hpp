@@ -6,6 +6,8 @@ class FolhaDeSaida {
 
     public:
 
+        bool debug;
+
         void imprimir(std::string texto);
 
 };

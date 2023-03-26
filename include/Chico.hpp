@@ -13,6 +13,8 @@ class Chico {
 
     public:
 
+        bool debug;
+
         void carregarGaveteiro(Gaveteiro &gaveteiro, std::string script);
 
         std::string proximaInstrucao(Gaveteiro gaveteiro, EPI &epi);

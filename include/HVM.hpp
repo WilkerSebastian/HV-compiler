@@ -20,6 +20,7 @@ class HVM {
         Chico chico;
         PortaCartoes portaCartoes;
         FolhaDeSaida folhaDeSaida;
+        bool debug;
 
     public:
 
@@ -36,6 +37,8 @@ class HVM {
         void parser(std::string script);
 
         std::string assembler(std::string comando);
+
+        void setDebug(bool debug);
 
 };
 

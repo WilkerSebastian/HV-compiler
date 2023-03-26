@@ -86,7 +86,7 @@ bool vaParaEE(std::string token) {
 
 bool ACrecebeConstante(std::string token) {
 
-    std::regex regex_pattern("^0-([0-9]{3})$");
+    std::regex regex_pattern("^0-([0-9]{1,3})$");
 
     return std::regex_match(token, regex_pattern);
 
@@ -105,7 +105,7 @@ bool isCommand(std::string token) {
     bool valid = true;
 
     std::regex r1("^[0-9][0-9][0-9]$");
-    std::regex r2("^0-([0-9]{3})$");
+    std::regex r2("^0-([0-9]{1,3})$");
 
     if (!std::regex_match(token , r1)){
 

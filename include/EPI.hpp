@@ -14,6 +14,8 @@ class EPI {
 
     public:
 
+        bool debug;
+
         void registrar(uint16_t registro);
 
         uint16_t lerRegistro();

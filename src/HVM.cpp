@@ -62,9 +62,23 @@ void HVM::parser(std::string script) {
 
 void HVM::assembly(std::string script) {
 
+    if(this->debug) {
+
+      std::cout << "-------------------------------\n"
+                << "DEBUG ASSEMBLY\n"
+                << "-------------------------------\n";
+    
+    }
+
     this->chico.carregarGaveteiro(this->gaveteiro, script);
 
     for(size_t i = 0;i < 100;i++) {
+
+        if(this->debug) {
+
+          std::cout << "-------------------------------\n";
+
+        }
 
         std::string instrucao = this->chico.proximaInstrucao(this->gaveteiro, this->epi);
 
@@ -139,6 +153,15 @@ void HVM::assembly(std::string script) {
 
             std::cerr << "\nerro de sintaxe! comando " << instrucao << "\n";
             exit(1);
+
+        }
+
+        if(this->debug) {
+
+          std::cout << "-------------------------------\n"
+                    << "DEBUG LOG\n"
+                    << "INSTRUÇÂO: " << instrucao << "\n"
+                    << "EE: " << EE << "\n";
 
         }
 
@@ -258,4 +281,16 @@ std::string HVM::lerArquivo(std::string path, std::string extensao) {
   arquivo.close();
 
   return conteudo;
+}
+
+void HVM::setDebug(bool debug) {
+
+  this->debug = debug;
+  this->chico.debug = debug;
+  this->calculadora.debug = debug;
+  this->epi.debug = debug;
+  this->folhaDeSaida.debug = debug;
+  this->gaveteiro.debug = debug;
+  this->portaCartoes.debug = debug;
+
 }

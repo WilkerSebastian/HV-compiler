@@ -1,4 +1,7 @@
 .vscode
 parser.ahv
 folha_saida.txt
-bin/*
+bin/hvc
+bin/hvc.exe
+bin/hvc.ilk
+bin/hvc.pdb
