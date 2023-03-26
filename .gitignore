@@ -1,7 +1,2 @@
 .vscode
-parser.ahv
-folha_saida.txt
-bin/hvc
-bin/hvc.exe
-bin/hvc.ilk
-bin/hvc.pdb
+node_modules

@@ -1,0 +1,91 @@
+:root {
+
+    --dark-light: #414141;
+    --dark-text: #6d6d6d;
+    --dark-solve: #212121;
+    --dark-inter: #323232;
+    --light-text: #f7f7f7;
+
+}
+
+.bg-dark-light {
+
+    background-color: var(--dark-light);
+
+}
+
+main {
+
+    width: 100%;
+    height: 100%;
+    background-color: aqua;
+
+}
+
+.command {
+
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+
+}
+
+.command:hover {
+
+    scale: 1.1;
+
+}
+
+.command-icon {
+
+    width: 2.5rem;
+    height: 2.5rem;
+
+}
+
+body {
+
+    background-color: black;
+
+}
+
+#commands {
+
+    width: 10%;
+    height: 35.1rem;
+    background-color: var(--dark-light);
+
+}
+
+#view-right {
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background-color: var(--dark-inter);
+
+}
+
+#block-code{ 
+
+    padding: 1%;
+    height: 26rem;
+    width: 100%;
+
+}
+
+#block-terminal {
+
+    padding: 1%;
+    width: 100%;
+    height: 9rem;
+
+}
+
+#terminal {
+
+    height: 25%;
+    width: 100%;
+
+}
