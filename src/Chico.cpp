@@ -43,7 +43,7 @@ void Chico::carregarGaveteiro(Gaveteiro &gaveterio, std::string script) {
 
 std::string Chico::proximaInstrucao(Gaveteiro gaveteiro ,EPI &epi) {
 
-    uint16_t registro_atual = epi.lerRegistro();
+    int16_t registro_atual = epi.lerRegistro();
 
     epi.registrar(registro_atual + 1);
 
@@ -51,55 +51,55 @@ std::string Chico::proximaInstrucao(Gaveteiro gaveteiro ,EPI &epi) {
  
 }
 
-void Chico::cpEE(Calculadora &calculadora, Gaveteiro gaveteiro, uint16_t endereco) {
+void Chico::cpEE(Calculadora &calculadora, Gaveteiro gaveteiro, int16_t endereco) {
 
-    uint16_t valor = static_cast<uint16_t>(std::stoi(gaveteiro.ler(endereco)));
+    int16_t valor = static_cast<int16_t>(std::stoi(gaveteiro.ler(endereco)));
 
     calculadora.acumular(valor);
 
 }
 
-void Chico::cpAC(Calculadora calculadora, Gaveteiro &gaveteiro, uint16_t endereco) {
+void Chico::cpAC(Calculadora calculadora, Gaveteiro &gaveteiro, int16_t endereco) {
 
-    uint16_t acumulador = calculadora.getAcumulador();
+    int16_t acumulador = calculadora.getAcumulador();
 
     gaveteiro.registrar(endereco, std::to_string(acumulador));
 
 }
 
-void Chico::some(Calculadora &calculadora, Gaveteiro gaveteiro, uint16_t endereco) {
+void Chico::some(Calculadora &calculadora, Gaveteiro gaveteiro, int16_t endereco) {
 
-    uint16_t valor = static_cast<uint16_t>(std::stoi(gaveteiro.ler(endereco)));
+    int16_t valor = static_cast<int16_t>(std::stoi(gaveteiro.ler(endereco)));
 
     calculadora.soma(valor);
 
 }
 
-void Chico::subtraia(Calculadora &calculadora, Gaveteiro gaveteiro, uint16_t endereco) {
+void Chico::subtraia(Calculadora &calculadora, Gaveteiro gaveteiro, int16_t endereco) {
 
-    uint16_t valor = static_cast<uint16_t>(std::stoi(gaveteiro.ler(endereco)));
+    int16_t valor = static_cast<int16_t>(std::stoi(gaveteiro.ler(endereco)));
 
     calculadora.subrtaia(valor);
 
 }
 
-void Chico::multiplique(Calculadora &calculadora, Gaveteiro gaveteiro, uint16_t endereco) {
+void Chico::multiplique(Calculadora &calculadora, Gaveteiro gaveteiro, int16_t endereco) {
 
-    uint16_t valor = static_cast<uint16_t>(std::stoi(gaveteiro.ler(endereco)));
+    int16_t valor = static_cast<int16_t>(std::stoi(gaveteiro.ler(endereco)));
 
     calculadora.multiplicar(valor);
 
 }
 
-void Chico::divida(Calculadora &calculadora, Gaveteiro gaveteiro, uint16_t endereco) {
+void Chico::divida(Calculadora &calculadora, Gaveteiro gaveteiro, int16_t endereco) {
 
-    uint16_t valor = static_cast<uint16_t>(std::stoi(gaveteiro.ler(endereco)));
+    int16_t valor = static_cast<int16_t>(std::stoi(gaveteiro.ler(endereco)));
 
     calculadora.divida(valor);
 
 }
 
-void Chico::se(Calculadora calculadora, EPI &epi, uint16_t endereco) {
+void Chico::se(Calculadora calculadora, EPI &epi, int16_t endereco) {
 
     if(this->debug) {
 
@@ -115,15 +115,15 @@ void Chico::se(Calculadora calculadora, EPI &epi, uint16_t endereco) {
 
 }
 
-void Chico::leia(Gaveteiro &gaveteiro, PortaCartoes pc, uint16_t endereco) {
+void Chico::leia(Gaveteiro &gaveteiro, PortaCartoes pc, int16_t endereco) {
 
-    uint16_t valor = pc.lerCartao();
+    int16_t valor = pc.lerCartao();
 
     gaveteiro.registrar(endereco, std::to_string(valor));
 
 }
 
-void Chico::escreva(Gaveteiro gaveteiro, FolhaDeSaida fs , uint16_t endereco) {
+void Chico::escreva(Gaveteiro gaveteiro, FolhaDeSaida fs , int16_t endereco) {
 
     std::string output = gaveteiro.ler(endereco);
 
@@ -131,7 +131,7 @@ void Chico::escreva(Gaveteiro gaveteiro, FolhaDeSaida fs , uint16_t endereco) {
 
 }
 
-void Chico::para(EPI &epi, uint16_t endereco) {
+void Chico::para(EPI &epi, int16_t endereco) {
 
     std::cout << "EPI redirecionado para " << endereco << "\n";
  
@@ -139,7 +139,7 @@ void Chico::para(EPI &epi, uint16_t endereco) {
 
 }
 
-void Chico::constante(Calculadora &calculadora, uint16_t valor) {
+void Chico::constante(Calculadora &calculadora, int16_t valor) {
 
     calculadora.acumular(valor);
 

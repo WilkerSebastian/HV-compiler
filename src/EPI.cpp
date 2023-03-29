@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include<string>
 
-void EPI::registrar(uint16_t registro) {
+void EPI::registrar(int16_t registro) {
  
     if (registro > 99) {
 
@@ -17,7 +17,7 @@ void EPI::registrar(uint16_t registro) {
 
 }
 
-uint16_t EPI::lerRegistro() {
+int16_t EPI::lerRegistro() {
 
     return this->valor;
 

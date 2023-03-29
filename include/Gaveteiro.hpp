@@ -11,7 +11,7 @@ class Gaveteiro {
 
 private:
 
-    std::vector<uint16_t> restritos;
+    std::vector<int16_t> restritos;
     std::string gavetas[MAX_ACCESS];
 
 public:
@@ -20,9 +20,9 @@ public:
 
     void carga(std::vector<std::string> registros);
 
-    void registrar(uint16_t endereco, std::string valor);
+    void registrar(int16_t endereco, std::string valor);
 
-    std::string ler(uint16_t endereco);
+    std::string ler(int16_t endereco);
 
 };
 
