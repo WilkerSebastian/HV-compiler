@@ -14,7 +14,7 @@ void Gaveteiro::carga(std::vector<std::string> registros) {
 
     }
 
-    for(int16_t i = 0;i < registros.size();i++) {
+    for(size_t i = 0;i < registros.size();i++) {
 
         if(this->debug) {
 
