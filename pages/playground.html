@@ -45,14 +45,14 @@
                 </button>
             </div>
             <div class="command">
-                <button class="btn" id="run">
+                <button class="btn" id="debug">
 
                     <img src="../img/debug.png" class="command-icon">
 
                 </button>
             </div>
             <div class="command">
-                <button class="btn" id="run">
+                <button class="btn" id="save">
 
                     <img src="../img/save.webp" class="command-icon">
 
@@ -63,7 +63,20 @@
         <section id="view-right">
 
             <div id="editor" class="editor"></div>
-            <textarea name="terminal" id="terminal" cols="30" rows="10" disabled></textarea>
+            <div id="terminal">
+
+                <div class="content">
+                    <div class="input" style="display: none;">
+                      <span></span>
+                      <input type="text" id="inputField">
+                    </div>
+                    <div class="output">
+                      <div id="outputArea"></div>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
 
         </section>
     </main>
@@ -84,7 +97,11 @@
     <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="../js/style.js"></script>
+    <script src="../js/Terminal.js"></script>
     <script src="../js/Editor.js"></script>
+    <script src="../js/globais.js"></script>
+    <script src="../js/HVM.js"></script>
+    <script src="../js/main.js"></script>
 
 </body>
 

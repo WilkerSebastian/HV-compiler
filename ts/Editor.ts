@@ -1,22 +1,16 @@
 class Editor {
 
-    public clear() {
+    public getScript() {
 
-        
+        let values:string[];
 
-    }
+        values = $(".mtk1").get().map((e) => {
 
-    public getValue() {
-
-        let value:string = "";
-
-        $(".mtk1").get().forEach((e , index) => {
-
-            value += (e.firstChild as any).data + (index + 1 == $(".mtk1").get().length ? "" : "\n")
+            return ((e.firstChild as any).data).trim()
 
         })
 
-        return value
+        return values
 
     }
 

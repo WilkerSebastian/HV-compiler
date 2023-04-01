@@ -5,6 +5,26 @@
     --dark-solve: #212121;
     --dark-inter: #323232;
     --light-text: #f7f7f7;
+    --yellow-text: #f0ee74;
+    --error-text: #c70b0b;
+
+}
+
+.text-alert {
+
+    color: var(--yellow-text);
+
+}
+
+.text-output {
+
+    color: var(--light-text);
+
+}
+
+.text-dangerios {
+
+    color: var(--error-text);
 
 }
 
@@ -91,5 +111,54 @@ body {
     height: 20%;
     width: 85%;
     background-color: var(--dark-solve);
+
+}
+
+.content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.input {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+#inputField {
+
+    color: var(--light-text);
+    outline: none;
+    background-color: #21212100;
+
+}
+
+.input span {
+    margin-right: 5px;
+}
+
+.input input {
+    flex-grow: 1;
+    border: none;
+}
+
+.output {
+    flex-grow: 1;
+    overflow-y: scroll;
+    height: 100%;
+}
+
+#outputArea {
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+#outputArea span{
+
+    margin-left: 1rem;
+    margin-bottom: 0.5rem;
 
 }
