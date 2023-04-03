@@ -1,37 +1,51 @@
+/*
+<span id="labelField"></span>
+<input type="text" id="inputField">
+*/
+
 class Terminal {
 
+    private index = 0;
     private input = "";
 
-    constructor() {
+    public async scan(text:string) {
 
-        $('#inputField').on('keydown', (e) => {
-            if (e.key == 'Enter') {
-
-              this.input = ($('#inputField').val() as string).trim();
-
-              this.showInput(false)
-
-            }
-        });
-
-    }
-
-    public clearInput() {
+        this.index++
 
         this.input = ""
 
+        $("#outputArea").append(`
+            <div class="d-flex">
+                <span class="labelField">${text}</span>
+                <input type="text" class="inputField" id="inputField-${this.index}">
+            </div>
+        `)
+
+        $("body").on('keydown', (e) => {
+
+            if(e.key == 'Enter' || this.input != "") {
+    
+                const value = ($(`#inputField-${this.index}`).val() as string).trim()
+
+                this.input = value != "" ? value : "\n";
+    
+                $(`#inputField-${this.index}`).attr("disabled" , "disabled")
+
+            }
+
+        });
+
+        return await this.getBuffer()
+
     }
 
-    public getInput() {
+    private async getBuffer() {
 
-        return this.input
+        while(this.input === "") {
+          await new Promise(resolve => setTimeout(resolve, 10));
+        }
 
-    }
-
-    public showInput(show:boolean) {
-
-        $('.input').css("display", show ? "block":"none")
-
+        return this.input;
     }
 
     public clear() {

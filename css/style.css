@@ -63,6 +63,12 @@ main {
 
 }
 
+input {
+
+    padding: 0px;
+
+}
+
 body {
 
     background-color: var(--dark-light);
@@ -117,35 +123,22 @@ body {
 .content {
     height: 100%;
     display: flex;
+    overflow-y: scroll;
     flex-direction: column;
 }
 
-.input {
-    display: flex;
-    align-items: center;
-    padding: 5px;
-}
-
-#inputField {
+#terminal .inputField {
 
     color: var(--light-text);
     outline: none;
-    background-color: #21212100;
-
-}
-
-.input span {
-    margin-right: 5px;
-}
-
-.input input {
-    flex-grow: 1;
     border: none;
+    margin-left: 0.4rem;
+    background-color: var(--dark-solve);
+
 }
 
 .output {
     flex-grow: 1;
-    overflow-y: scroll;
     height: 100%;
 }
 
@@ -159,6 +152,5 @@ body {
 #outputArea span{
 
     margin-left: 1rem;
-    margin-bottom: 0.5rem;
 
 }
