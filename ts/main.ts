@@ -1,13 +1,13 @@
 const hvm = new HVM()
 
-$("#run").on("click", () => {
+$("#run").on("click", async() => {
 
-    hvm.run()
+    await hvm.run()
 
 })
-$("#debug").on("click", () => {
+$("#debug").on("click", async() => {
 
-    hvm.run(true)
+    await hvm.run(true)
 
 })
 $("#save").on("click", () => {

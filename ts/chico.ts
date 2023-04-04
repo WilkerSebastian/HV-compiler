@@ -119,7 +119,7 @@ class Chico {
     
     public pare() {
     
-        terminal.addText("Programa finalizado com sucesso");
+        terminal.addText("Programa finalizado com sucesso!");
     
         return "finalizar";
     

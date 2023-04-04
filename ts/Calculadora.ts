@@ -57,7 +57,7 @@ class Calculadora {
     
         if(this.debug) {
     
-            terminal.addText(`CALCULADORA DEBUG\nACUMULADOR ATUAL: ${this.getAcumulador()}\nOPERAÇÂO: ${valor}`);
+            terminal.addText(`CALCULADORA DEBUG<br>ACUMULADOR ATUAL: ${this.getAcumulador()}<br>OPERAÇÂO: ${this.getAcumulador()} = ${valor}`);
     
         }
     

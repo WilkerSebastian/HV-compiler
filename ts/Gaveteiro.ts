@@ -5,7 +5,7 @@ class Gaveteiro {
   
     public carga(registros: string[]) {
       if (this.debug) {
-        terminal.addDebug("INICIANDO PROCESSO DE CARGA\n---------------------------\n");
+        terminal.addDebug("INICIANDO PROCESSO DE CARGA<br>---------------------------");
       }
   
       for (let i = 0; i < registros.length; i++) {
@@ -17,7 +17,7 @@ class Gaveteiro {
       }
   
       if (this.debug) {
-        terminal.addDebug("-----------------------------\nFINALIZANDO PROCESSO DE CARGA\n");
+        terminal.addDebug("-----------------------------<br>FINALIZANDO PROCESSO DE CARGA");
       }
 
       return "sucesso"

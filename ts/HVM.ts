@@ -10,11 +10,15 @@ class HVM {
 
     public async run(debug?:boolean) {
 
+        terminal.clear()
+
         this.setDebug(debug ?? false)
 
         const script = editor.getScript()
 
         await this.assembly(script)
+
+        return 0
 
     }
 
@@ -33,73 +37,87 @@ class HVM {
             
         }
 
+        if(this.debug) {
+
+            terminal.addDebug("-------------------------------\nDEBUG ASSEMBLY\n-------------------------------\n");
+          
+        }
+
         let retorno:string | number = this.chico.carregarGaveteiro(this.gaveteiro, script)
 
         for (let index = 0; index < 100; index++) {
             
+            if(this.debug) {
+
+                terminal.addDebug("-------------------------------\n")
+
+            }
+
             const instrucao = this.chico.proximaInstrucao(this.gaveteiro, this.epi)
             
+            console.log(instrucao);
+
             let EE = parseInt(instrucao.substring(1, 2))
 
-            if (RegExp("/^0[0-9][1-9]$/").test(instrucao)) {
+            if (RegExp("^0[0-9]{2}$").test(instrucao) && instrucao != "000") {
                 
                 retorno = this.chico.cpEE(this.calculadora, this.gaveteiro, EE)
 
             }
-            else if (RegExp("/^1[0-9][1-9]$/").test(instrucao)) {
+            else if (RegExp("^1[0-9]{2}$").test(instrucao)) {
                 
                 retorno = this.chico.cpAC(this.calculadora, this.gaveteiro, EE)
 
             }
-            else if (RegExp("/^2[0-9][1-9]$/").test(instrucao)) {
+            else if (RegExp("^2[0-9]{2}$").test(instrucao)) {
                 
                 retorno = this.chico.some(this.calculadora, this.gaveteiro, EE)
 
             }
-            else if (RegExp("/^3[0-9][1-9]$/").test(instrucao)) {
+            else if (RegExp("^3[0-9]{2}$").test(instrucao)) {
                 
                 retorno = this.chico.subtraia(this.calculadora, this.gaveteiro, EE)
 
             }
-            else if (RegExp("/^4[0-9][1-9]$/").test(instrucao)) {
+            else if (RegExp("^4[0-9]{2}$").test(instrucao)) {
 
                 retorno = this.chico.multiplique(this.calculadora, this.gaveteiro, EE)
                 
             }
-            else if (RegExp("/^5[0-9][1-9]$/").test(instrucao)) {
+            else if (RegExp("^5[0-9]{2}$").test(instrucao)) {
                 
                 retorno = this.chico.divida(this.calculadora, this.gaveteiro, EE)
 
             }
-            else if (RegExp("/^6[0-9][1-9]$/").test(instrucao)) {
+            else if (RegExp("^6[0-9]{2}$").test(instrucao)) {
                 
                 retorno = this.chico.se(this.calculadora, this.epi, EE)
 
             }
-            else if (RegExp("/^7[0-9][1-9]$/").test(instrucao)) {
+            else if (RegExp("^7[0-9]{2}$").test(instrucao)) {
                 
                 retorno = await this.chico.leia(this.gaveteiro, this.portaCartoes, EE)
 
             }
-            else if (RegExp("/^8[0-9][1-9]$/").test(instrucao)) {
+            else if (RegExp("^8[0-9]{2}$").test(instrucao)) {
                 
                 retorno = this.chico.escreva(this.gaveteiro, this.folhaDeSaida, EE)
 
             }
-            else if (RegExp("/^9[0-9][1-9]$/").test(instrucao)) {
+            else if (RegExp("^9[0-9]{2}$").test(instrucao)) {
 
                 retorno = this.chico.para(this.epi, EE)
 
             }
-            else if (RegExp("/^0-([0-9]{1,3})$/").test(instrucao)) {
+            else if (RegExp("^0-\\d{1,3}$").test(instrucao)) {
                 
-                const regex = RegExp("/\d{1,3}$/")
+                const regex = RegExp("\\d{1,3}$")
 
                 EE = parseInt((instrucao.match(regex) as RegExpMatchArray)[0])
 
                 retorno = this.chico.constante(this.calculadora, EE)
 
-            } else if(RegExp("/^([0-9]{3})$/").test(instrucao)) {
+            } else if(RegExp("000").test(instrucao)) {
 
                 retorno = this.chico.pare()
 
@@ -107,6 +125,12 @@ class HVM {
 
                 terminal.addError(`erro de sintaxe! comando ${instrucao}`)
                 return
+
+            }
+
+            if(this.debug && !(retorno == "erro" || retorno == "finalizar")) {
+
+                terminal.addDebug(`-------------------------------<br>DEBUG LOG<br>INSTRUÇÂO: ${instrucao}<br>EE: ${EE}`)
 
             }
 
@@ -139,7 +163,7 @@ class HVM {
 
         let valid = false
 
-        const rules = [/^[0-9][0-9][0-9]$/, /^0-([0-9]{1,3})$/]
+        const rules = [/^[0-9]{3}$/, /^0-\d{1,3}$/]
 
         for (let index = 0; index < rules.length; index++) {
 
