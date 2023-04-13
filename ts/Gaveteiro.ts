@@ -4,6 +4,7 @@ class Gaveteiro {
     public debug: boolean = false;
   
     public carga(registros: string[]) {
+
       if (this.debug) {
         terminal.addDebug("INICIANDO PROCESSO DE CARGA<br>---------------------------");
       }
@@ -24,6 +25,7 @@ class Gaveteiro {
     }
   
     public registrar(endereco: number, valor: string) {
+
       if (this.debug) {
         terminal.addDebug(`GAVETEIRO DEBUG\ngravando na gaveta (${endereco}) com valor ${valor}\n`);
       }
@@ -31,7 +33,7 @@ class Gaveteiro {
       for (let i = 0; i < this.restritos.length; i++) {
         if (this.restritos[i] === endereco) {
           const conteudo = this.ler(endereco);
-          terminal.addError(`\nErro tentativa de sobrescrita de gaveta que armazena código fonte\nconteudo da gaveta(): ${conteudo}\n`);
+          terminal.addError(`\nErro tentativa de sobrescrita de gaveta que armazena código fonte\nconteudo da gaveta(${endereco}): ${conteudo}\n`);
           return "erro";
         }
       }

@@ -5,6 +5,8 @@
 
 class Terminal {
 
+    public controle = true
+
     private index = 0;
     private input = "";
 
@@ -41,7 +43,7 @@ class Terminal {
 
     private async getBuffer() {
 
-        while(this.input === "") {
+        while(this.input === "" && this.controle) {
           await new Promise(resolve => setTimeout(resolve, 10));
         }
 

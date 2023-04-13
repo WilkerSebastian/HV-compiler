@@ -8,9 +8,15 @@ class HVM {
     private gaveteiro = new Gaveteiro()
     private portaCartoes = new PortaCartoes()
 
+    public runner = false
+
     public async run(debug?:boolean) {
 
+        this.runner = true
+
         terminal.clear()
+
+        this.resetar()
 
         this.setDebug(debug ?? false)
 
@@ -45,7 +51,7 @@ class HVM {
 
         let retorno:string | number = this.chico.carregarGaveteiro(this.gaveteiro, script)
 
-        for (let index = 0; index < 100; index++) {
+        do {
             
             if(this.debug) {
 
@@ -55,9 +61,7 @@ class HVM {
 
             const instrucao = this.chico.proximaInstrucao(this.gaveteiro, this.epi)
             
-            console.log(instrucao);
-
-            let EE = parseInt(instrucao.substring(1, 2))
+            let EE = parseInt(instrucao.substring(1, 3))
 
             if (RegExp("^0[0-9]{2}$").test(instrucao) && instrucao != "000") {
                 
@@ -124,7 +128,7 @@ class HVM {
             } else {
 
                 terminal.addError(`erro de sintaxe! comando ${instrucao}`)
-                return
+                return 1
 
             }
 
@@ -134,13 +138,25 @@ class HVM {
 
             }
 
-            if(retorno == "erro" || retorno == "finalizar") {
+            if(retorno == "finalizar") {
 
-                return
+                return 0
 
             }
 
-        }
+            if(!this.runner) {
+
+                this.runner = false
+
+                return 3
+
+            }
+
+        } while(retorno != "erro");
+
+        this.runner = false
+
+        return 1 
 
     }
 
@@ -195,6 +211,17 @@ class HVM {
         this.folhaDeSaida.debug = debug
         this.gaveteiro.debug = debug
         this.portaCartoes.debug = debug
+
+    }
+
+    private resetar() {
+
+        this.calculadora = new Calculadora()
+        this.chico = new Chico()
+        this.epi = new EPI()
+        this.folhaDeSaida = new FolhaDeSaida()
+        this.gaveteiro = new Gaveteiro()
+        this.portaCartoes = new PortaCartoes()
 
     }
 

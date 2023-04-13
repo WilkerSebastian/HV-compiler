@@ -136,7 +136,7 @@ class Gaveteiro {
         for (let i = 0; i < this.restritos.length; i++) {
             if (this.restritos[i] === endereco) {
                 const conteudo = this.ler(endereco);
-                terminal.addError(`\nErro tentativa de sobrescrita de gaveta que armazena código fonte\nconteudo da gaveta(): ${conteudo}\n`);
+                terminal.addError(`\nErro tentativa de sobrescrita de gaveta que armazena código fonte\nconteudo da gaveta(${endereco}): ${conteudo}\n`);
                 return "erro";
             }
         }
@@ -160,10 +160,13 @@ class HVM {
         this.folhaDeSaida = new FolhaDeSaida();
         this.gaveteiro = new Gaveteiro();
         this.portaCartoes = new PortaCartoes();
+        this.runner = false;
     }
     run(debug) {
         return __awaiter(this, void 0, void 0, function* () {
+            this.runner = true;
             terminal.clear();
+            this.resetar();
             this.setDebug(debug !== null && debug !== void 0 ? debug : false);
             const script = editor.getScript();
             yield this.assembly(script);
@@ -183,13 +186,12 @@ class HVM {
                 terminal.addDebug("-------------------------------\nDEBUG ASSEMBLY\n-------------------------------\n");
             }
             let retorno = this.chico.carregarGaveteiro(this.gaveteiro, script);
-            for (let index = 0; index < 100; index++) {
+            do {
                 if (this.debug) {
                     terminal.addDebug("-------------------------------\n");
                 }
                 const instrucao = this.chico.proximaInstrucao(this.gaveteiro, this.epi);
-                console.log(instrucao);
-                let EE = parseInt(instrucao.substring(1, 2));
+                let EE = parseInt(instrucao.substring(1, 3));
                 if (RegExp("^0[0-9]{2}$").test(instrucao) && instrucao != "000") {
                     retorno = this.chico.cpEE(this.calculadora, this.gaveteiro, EE);
                 }
@@ -230,15 +232,21 @@ class HVM {
                 }
                 else {
                     terminal.addError(`erro de sintaxe! comando ${instrucao}`);
-                    return;
+                    return 1;
                 }
                 if (this.debug && !(retorno == "erro" || retorno == "finalizar")) {
                     terminal.addDebug(`-------------------------------<br>DEBUG LOG<br>INSTRUÇÂO: ${instrucao}<br>EE: ${EE}`);
                 }
-                if (retorno == "erro" || retorno == "finalizar") {
-                    return;
+                if (retorno == "finalizar") {
+                    return 0;
                 }
-            }
+                if (!this.runner) {
+                    this.runner = false;
+                    return 3;
+                }
+            } while (retorno != "erro");
+            this.runner = false;
+            return 1;
         });
     }
     save() {
@@ -275,6 +283,14 @@ class HVM {
         this.gaveteiro.debug = debug;
         this.portaCartoes.debug = debug;
     }
+    resetar() {
+        this.calculadora = new Calculadora();
+        this.chico = new Chico();
+        this.epi = new EPI();
+        this.folhaDeSaida = new FolhaDeSaida();
+        this.gaveteiro = new Gaveteiro();
+        this.portaCartoes = new PortaCartoes();
+    }
 }
 class PortaCartoes {
     constructor() {
@@ -284,7 +300,7 @@ class PortaCartoes {
         return __awaiter(this, void 0, void 0, function* () {
             const input = yield terminal.scan("Informe o valor de 3 algarimos do cartão: ");
             if (this.debug) {
-                terminal.addText(`ENTRADA DE CARTÂO valor recebido: ${input}`);
+                terminal.addDebug(`ENTRADA DE CARTÂO valor recebido: ${input}`);
             }
             const valor = parseInt(input);
             if (valor < 0 || valor > 999) {
@@ -297,6 +313,7 @@ class PortaCartoes {
 }
 class Terminal {
     constructor() {
+        this.controle = true;
         this.index = 0;
         this.input = "";
     }
@@ -322,7 +339,7 @@ class Terminal {
     }
     getBuffer() {
         return __awaiter(this, void 0, void 0, function* () {
-            while (this.input === "") {
+            while (this.input === "" && this.controle) {
                 yield new Promise(resolve => setTimeout(resolve, 10));
             }
             return this.input;
@@ -414,14 +431,41 @@ const editor = new Editor();
 const terminal = new Terminal();
 const hvm = new HVM();
 $("#run").on("click", () => __awaiter(void 0, void 0, void 0, function* () {
-    yield hvm.run();
+    bloqueia(true);
+    const exit = yield hvm.run();
+    if (!isNaN(exit)) {
+        bloqueia(false);
+        return;
+    }
 }));
+$("#stop").on("click", () => {
+    console.log("stop");
+    terminal.controle = false;
+    hvm.runner = false;
+    setTimeout(() => terminal.controle = true, 10);
+});
 $("#debug").on("click", () => __awaiter(void 0, void 0, void 0, function* () {
-    yield hvm.run(true);
+    bloqueia(true);
+    const exit = yield hvm.run(true);
+    if (!isNaN(exit)) {
+        bloqueia(false);
+        return;
+    }
 }));
 $("#save").on("click", () => {
     hvm.save();
 });
+function bloqueia(ativo) {
+    if (!ativo) {
+        $("#cstop").css("display", "none");
+        $("#run").css("display", "block");
+        $("#debug").removeAttr("disabled");
+        return;
+    }
+    $("#cstop").css("display", "block");
+    $("#run").css("display", "none");
+    $("#debug").attr("disabled", "disabled");
+}
 for (let index = 1; index <= 100; index++) {
     $(`.win-w${index}`).css("width", `${(index / 100) * window.innerWidth}px`);
     $(`.win-h${index}`).css("height", `${(index / 100) * window.innerHeight}px`);

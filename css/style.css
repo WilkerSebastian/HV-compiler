@@ -75,11 +75,31 @@ body {
 
 }
 
+.container-body {
+
+    height: 100vh;
+    width: 100vw;
+
+}
+
 #commands {
 
     width: 7%;
     height: 100%;
     background-color: var(--dark-light);
+
+}
+
+button:disabled {
+    
+    border: none;
+    outline: none; 
+    cursor: not-allowed; 
+}  
+
+button:disabled img {
+
+    opacity: 0.7;
 
 }
 
@@ -95,12 +115,9 @@ body {
 
 .editor {
 
-    margin-top: 2%;
     margin-bottom: 1%;
-    margin-left: auto;
-    margin-right: auto;
-    width: 80%;
-    height: 60%;
+    width: 100%;
+    height: 100%;
     background-color: var(--dark-inter);
 
 }
@@ -112,10 +129,8 @@ body {
     overflow: auto;
     outline: none;
     resize: none;
-    margin-left: auto;
-    margin-right: auto;
-    height: 20%;
-    width: 85%;
+    height: 40%;
+    width: 100%;
     background-color: var(--dark-solve);
 
 }
@@ -152,5 +167,11 @@ body {
 #outputArea span{
 
     margin-left: 1rem;
+
+}
+
+#cstop {
+
+    display: none;
 
 }
