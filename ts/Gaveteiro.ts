@@ -27,7 +27,7 @@ class Gaveteiro {
     public registrar(endereco: number, valor: string) {
 
       if (this.debug) {
-        terminal.addDebug(`GAVETEIRO DEBUG\ngravando na gaveta (${endereco}) com valor ${valor}\n`);
+        terminal.addDebug(`-----------------------------<br>GAVETEIRO DEBUG<br>gravando na gaveta (${endereco}) com valor ${valor}\n`);
       }
   
       for (let i = 0; i < this.restritos.length; i++) {

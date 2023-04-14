@@ -15,7 +15,7 @@ class Calculadora {
     }
     soma(valor) {
         if (this.debug) {
-            terminal.addText(`CALCULADORA DEBUG\nACUMULADOR ATUAL: ${this.acumulador}\nOPERAÇÂO: ${this.acumulador} + ${valor} = ${this.acumulador + valor}`);
+            terminal.addDebug(`CALCULADORA DEBUG<br>ACUMULADOR ATUAL: ${this.acumulador}<br>OPERAÇÂO: ${this.acumulador} + ${valor} = ${this.acumulador + valor}`);
         }
         if (valor < 0 || valor + this.acumulador > 999) {
             terminal.addError(`Erro na operação ${this.acumulador} + ${valor} = ${valor + this.acumulador}, único valor aceito como resultado é entre 0-999`);
@@ -26,7 +26,7 @@ class Calculadora {
     }
     subrtaia(valor) {
         if (this.debug) {
-            terminal.addText(`CALCULADORA DEBUG\nACUMULADOR ATUAL: ${this.acumulador}\nOPERAÇÂO: ${this.acumulador} - ${valor} = ${this.acumulador - valor}`);
+            terminal.addDebug(`CALCULADORA DEBUG<br>ACUMULADOR ATUAL: ${this.acumulador}<br>OPERAÇÂO: ${this.acumulador} - ${valor} = ${this.acumulador - valor}`);
         }
         if (valor < 0 || valor + this.acumulador > 999) {
             terminal.addError(`Erro na operação ${this.acumulador} - ${valor} = ${valor - this.acumulador}, único valor aceito como resultado é entre 0-999`);
@@ -37,7 +37,7 @@ class Calculadora {
     }
     multiplicar(valor) {
         if (this.debug) {
-            terminal.addText(`CALCULADORA DEBUG\nACUMULADOR ATUAL: ${this.acumulador}\nOPERAÇÂO: ${this.acumulador} * ${valor} = ${this.acumulador * valor}`);
+            terminal.addDebug(`CALCULADORA DEBUG<br>ACUMULADOR ATUAL: ${this.acumulador}<br>OPERAÇÂO: ${this.acumulador} * ${valor} = ${this.acumulador * valor}`);
         }
         if (valor < 0 || valor + this.acumulador > 999) {
             terminal.addError(`Erro na operação ${this.acumulador} * ${valor} = ${valor * this.acumulador}, único valor aceito como resultado é entre 0-999`);
@@ -48,7 +48,7 @@ class Calculadora {
     }
     divida(valor) {
         if (this.debug) {
-            terminal.addText(`CALCULADORA DEBUG\nACUMULADOR ATUAL: ${this.acumulador}\nOPERAÇÂO: ${this.acumulador} / ${valor} = ${this.acumulador / valor}`);
+            terminal.addDebug(`CALCULADORA DEBUG<br>ACUMULADOR ATUAL: ${this.acumulador}<br>OPERAÇÂO: ${this.acumulador} / ${valor} = ${this.acumulador / valor}`);
         }
         if (valor < 0 || valor + this.acumulador > 999) {
             terminal.addError(`Erro na operação ${this.acumulador} / ${valor} = ${valor / this.acumulador}, único valor aceito como resultado é entre 0-999`);
@@ -59,7 +59,7 @@ class Calculadora {
     }
     acumular(valor) {
         if (this.debug) {
-            terminal.addText(`CALCULADORA DEBUG<br>ACUMULADOR ATUAL: ${this.getAcumulador()}<br>OPERAÇÂO: ${this.getAcumulador()} = ${valor}`);
+            terminal.addDebug(`CALCULADORA DEBUG<br>ACUMULADOR ATUAL: ${this.getAcumulador()}<br>OPERAÇÂO: ${this.getAcumulador()} = ${valor}`);
         }
         if (valor < 0 || valor > 999) {
             terminal.addError(`Erro na escrita do acumulador, do valor ${valor}, unico valor aceito é entre 0-999`);
@@ -92,8 +92,8 @@ class EPI {
 class Editor {
     getScript() {
         let values;
-        values = $(".mtk1").get().map((e) => {
-            return (e.firstChild.data).trim();
+        values = editorMonaco.getValue().split("\n").map((e) => {
+            return e.trim();
         });
         return values;
     }
@@ -131,7 +131,7 @@ class Gaveteiro {
     }
     registrar(endereco, valor) {
         if (this.debug) {
-            terminal.addDebug(`GAVETEIRO DEBUG\ngravando na gaveta (${endereco}) com valor ${valor}\n`);
+            terminal.addDebug(`-----------------------------<br>GAVETEIRO DEBUG<br>gravando na gaveta (${endereco}) com valor ${valor}\n`);
         }
         for (let i = 0; i < this.restritos.length; i++) {
             if (this.restritos[i] === endereco) {
@@ -176,6 +176,10 @@ class HVM {
     assembly(script) {
         return __awaiter(this, void 0, void 0, function* () {
             script = this.lexer(script);
+            if (script.length == 0) {
+                alert("Você tentou executar um código vazio!");
+                return 1;
+            }
             for (let index = 0; index < script.length; index++) {
                 if (!this.validSyntax(script[index])) {
                     terminal.addError(`Erro de syntax na linha ${index + 1} ${script[index]}`);
@@ -185,6 +189,7 @@ class HVM {
             if (this.debug) {
                 terminal.addDebug("-------------------------------\nDEBUG ASSEMBLY\n-------------------------------\n");
             }
+            console.log(script);
             let retorno = this.chico.carregarGaveteiro(this.gaveteiro, script);
             do {
                 if (this.debug) {
@@ -300,7 +305,7 @@ class PortaCartoes {
         return __awaiter(this, void 0, void 0, function* () {
             const input = yield terminal.scan("Informe o valor de 3 algarimos do cartão: ");
             if (this.debug) {
-                terminal.addDebug(`ENTRADA DE CARTÂO valor recebido: ${input}`);
+                terminal.addDebug(`-----------------------------<br>ENTRADA DE CARTÃO<br> valor recebido: ${input}`);
             }
             const valor = parseInt(input);
             if (valor < 0 || valor > 999) {
@@ -396,7 +401,7 @@ class Chico {
     }
     se(calculadora, epi, endereco) {
         if (this.debug) {
-            terminal.addDebug(`se (${calculadora.getAcumulador()} > 0): ${calculadora.getAcumulador() > 0 ? "verdadeiro" : "falso"} \nEPI redirecionado para ${endereco}`);
+            terminal.addDebug(`se (${calculadora.getAcumulador()} > 0): ${calculadora.getAcumulador() > 0 ? "verdadeiro" : "falso"} <br>EPI redirecionado para ${endereco}`);
         }
         if (calculadora.getAcumulador() > 0) {
             return epi.registrar(endereco);
@@ -439,7 +444,6 @@ $("#run").on("click", () => __awaiter(void 0, void 0, void 0, function* () {
     }
 }));
 $("#stop").on("click", () => {
-    console.log("stop");
     terminal.controle = false;
     hvm.runner = false;
     setTimeout(() => terminal.controle = true, 10);

@@ -4,9 +4,10 @@ class Editor {
 
         let values:string[];
 
-        values = $(".mtk1").get().map((e) => {
+        // @ts-ignore
+        values = editorMonaco.getValue().split("\n").map((e) => {
 
-            return ((e.firstChild as any).data).trim()
+            return e.trim()
 
         })
 

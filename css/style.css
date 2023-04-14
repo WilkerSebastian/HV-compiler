@@ -38,6 +38,8 @@ main {
 
     width: 100%;
     height: 100%;
+    max-width: 100vw;
+    max-height: 100vh;
     background-color: aqua;
 
 }
@@ -129,7 +131,7 @@ button:disabled img {
     overflow: auto;
     outline: none;
     resize: none;
-    height: 40%;
+    height: 60%;
     width: 100%;
     background-color: var(--dark-solve);
 
@@ -173,5 +175,13 @@ button:disabled img {
 #cstop {
 
     display: none;
+
+}
+
+.img-thumb {
+
+    border-radius: 100%;
+    width: 7.5%;
+    height: 7.5%;
 
 }

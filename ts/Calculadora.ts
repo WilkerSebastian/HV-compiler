@@ -5,7 +5,7 @@ class Calculadora {
   
     public soma(valor:number) {
       if (this.debug) {
-        terminal.addText(`CALCULADORA DEBUG\nACUMULADOR ATUAL: ${this.acumulador}\nOPERAÇÂO: ${this.acumulador} + ${valor} = ${this.acumulador + valor}`);
+        terminal.addDebug(`CALCULADORA DEBUG<br>ACUMULADOR ATUAL: ${this.acumulador}<br>OPERAÇÂO: ${this.acumulador} + ${valor} = ${this.acumulador + valor}`);
       }
       if (valor < 0 || valor + this.acumulador > 999) {
         terminal.addError(`Erro na operação ${this.acumulador} + ${valor} = ${valor + this.acumulador}, único valor aceito como resultado é entre 0-999`);
@@ -19,7 +19,7 @@ class Calculadora {
   
     public subrtaia(valor:number) {
       if (this.debug) {
-        terminal.addText(`CALCULADORA DEBUG\nACUMULADOR ATUAL: ${this.acumulador}\nOPERAÇÂO: ${this.acumulador} - ${valor} = ${this.acumulador - valor}`);
+        terminal.addDebug(`CALCULADORA DEBUG<br>ACUMULADOR ATUAL: ${this.acumulador}<br>OPERAÇÂO: ${this.acumulador} - ${valor} = ${this.acumulador - valor}`);
       }
       if (valor < 0 || valor + this.acumulador > 999) {
         terminal.addError(`Erro na operação ${this.acumulador} - ${valor} = ${valor - this.acumulador}, único valor aceito como resultado é entre 0-999`);
@@ -31,7 +31,7 @@ class Calculadora {
   
     public multiplicar(valor:number) {
       if (this.debug) {
-        terminal.addText(`CALCULADORA DEBUG\nACUMULADOR ATUAL: ${this.acumulador}\nOPERAÇÂO: ${this.acumulador} * ${valor} = ${this.acumulador * valor}`);
+        terminal.addDebug(`CALCULADORA DEBUG<br>ACUMULADOR ATUAL: ${this.acumulador}<br>OPERAÇÂO: ${this.acumulador} * ${valor} = ${this.acumulador * valor}`);
       }
       if (valor < 0 || valor + this.acumulador > 999) {
         terminal.addError(`Erro na operação ${this.acumulador} * ${valor} = ${valor * this.acumulador}, único valor aceito como resultado é entre 0-999`);
@@ -43,7 +43,7 @@ class Calculadora {
   
     public divida(valor:number) {
       if (this.debug) {
-        terminal.addText(`CALCULADORA DEBUG\nACUMULADOR ATUAL: ${this.acumulador}\nOPERAÇÂO: ${this.acumulador} / ${valor} = ${this.acumulador / valor}`);
+        terminal.addDebug(`CALCULADORA DEBUG<br>ACUMULADOR ATUAL: ${this.acumulador}<br>OPERAÇÂO: ${this.acumulador} / ${valor} = ${this.acumulador / valor}`);
       }
       if (valor < 0 || valor + this.acumulador > 999) {
         terminal.addError(`Erro na operação ${this.acumulador} / ${valor} = ${valor / this.acumulador}, único valor aceito como resultado é entre 0-999`);
@@ -57,7 +57,7 @@ class Calculadora {
     
         if(this.debug) {
     
-            terminal.addText(`CALCULADORA DEBUG<br>ACUMULADOR ATUAL: ${this.getAcumulador()}<br>OPERAÇÂO: ${this.getAcumulador()} = ${valor}`);
+            terminal.addDebug(`CALCULADORA DEBUG<br>ACUMULADOR ATUAL: ${this.getAcumulador()}<br>OPERAÇÂO: ${this.getAcumulador()} = ${valor}`);
     
         }
     

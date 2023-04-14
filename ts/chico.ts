@@ -70,7 +70,7 @@ class Chico {
     
         if(this.debug) {
     
-            terminal.addDebug(`se (${calculadora.getAcumulador()} > 0): ${calculadora.getAcumulador() > 0 ? "verdadeiro" : "falso"} \nEPI redirecionado para ${endereco}`)
+            terminal.addDebug(`se (${calculadora.getAcumulador()} > 0): ${calculadora.getAcumulador() > 0 ? "verdadeiro" : "falso"} <br>EPI redirecionado para ${endereco}`)
     
         }
         if(calculadora.getAcumulador() > 0) {

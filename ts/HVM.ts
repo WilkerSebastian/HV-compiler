@@ -32,6 +32,13 @@ class HVM {
 
         script = this.lexer(script)
 
+        if (script.length == 0) {
+            
+            alert("Você tentou executar um código vazio!")
+            return 1
+
+        }
+
         for (let index = 0; index < script.length; index++) {
     
             if(!this.validSyntax(script[index])) {
@@ -48,6 +55,8 @@ class HVM {
             terminal.addDebug("-------------------------------\nDEBUG ASSEMBLY\n-------------------------------\n");
           
         }
+
+        console.log(script);
 
         let retorno:string | number = this.chico.carregarGaveteiro(this.gaveteiro, script)
 

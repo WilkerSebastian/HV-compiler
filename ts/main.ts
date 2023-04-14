@@ -16,10 +16,7 @@ $("#run").on("click", async() => {
 
 })
 $("#stop").on("click", () => {
-
-    console.log("stop");
     
-
     terminal.controle = false
 
     hvm.runner = false

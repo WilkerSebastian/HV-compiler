@@ -8,7 +8,7 @@ class PortaCartoes {
         
         if(this.debug) {
     
-            terminal.addDebug(`ENTRADA DE CARTÂO valor recebido: ${input}`);
+            terminal.addDebug(`-----------------------------<br>ENTRADA DE CARTÃO<br> valor recebido: ${input}`);
     
         }
     
