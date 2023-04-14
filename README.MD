@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="./hvc.png" width="40%" height="40%"/>
+</p>
+
 # HV compiler
 
 O HV compiler é um intrepetador para linguagem, hv script e assembly hv.
