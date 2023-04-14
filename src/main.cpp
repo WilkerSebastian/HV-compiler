@@ -1,6 +1,5 @@
 #include <iostream>
 #include <fstream>
-#include <stdint.h>
 #include <vector>
 #include <string>
 #include <string.h>
@@ -77,8 +76,8 @@ int main(int argc, char* argv[]) {
                  << "github: https://github.com/WilkerSebastian/HV-compiler\n\n\n"
                  << "Comandos\n\n"
                  << "(não disponivel) hvc <caminho_do_arquivo_hvs> // compila em tempo de execução o HV script \n"
-                 << "hvc -o <caminho_do_arquivo_ahv> // compila em tempo de execução o assembly HV \n"
-                 << "(não disponivel) hvc -p <caminho_do_arquivo_hvs> // transpila o código hvs para ahv\n"
+                 << "hvc -a <caminho_do_arquivo_ahv> // compila em tempo de execução o assembly HV \n"
+                 << "(não disponivel) hvc -o <caminho_do_arquivo_hvs> // transpila o código hvs para ahv\n"
                  << "hvc (--help ou -h) // para mostrar o guia do hvc\n"
                  << "hvc (--version ou -v) // para mostrar a versão do hvc\n";
 
@@ -136,12 +135,12 @@ int decodeArgs(vector<string> args) {
     }
     else if(args.size() == 3) {
 
-        if (args[1].compare("-o") == 0) {
+        if (args[1].compare("-a") == 0) {
             
             code = ASSEMBLY;
 
         } 
-        else if(args[1].compare("-p") == 0) {
+        else if(args[1].compare("-o") == 0) {
 
             code = PARSER;
 

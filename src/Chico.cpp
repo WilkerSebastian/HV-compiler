@@ -133,7 +133,11 @@ void Chico::escreva(Gaveteiro gaveteiro, FolhaDeSaida fs , uint16_t endereco) {
 
 void Chico::para(EPI &epi, uint16_t endereco) {
 
-    std::cout << "EPI redirecionado para " << endereco << "\n";
+    if (this->debug) {
+
+        std::cout << "EPI redirecionado para " << endereco << "\n";
+        
+    }
  
     epi.registrar(endereco);
 

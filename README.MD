@@ -75,7 +75,7 @@ no tertminal
 
 para executar use o compilador, com o comando hvc -o <caminho do script> 
 ```
-hvc -o ./script.ahv
+hvc -a ./script.ahv
 ```
 
 ### Linguagem Assembly de HV2
