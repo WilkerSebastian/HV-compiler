@@ -1,7 +1,7 @@
 #include "../include/Calculadora.hpp"
 #include <iostream>
 
-void Calculadora::soma(uint16_t valor) {
+void Calculadora::soma(int16_t valor) {
 
     if(this->debug) {
 
@@ -22,7 +22,7 @@ void Calculadora::soma(uint16_t valor) {
 
 }
 
-void Calculadora::subrtaia(uint16_t valor) {
+void Calculadora::subrtaia(int16_t valor) {
 
     if(this->debug) { 
 
@@ -43,7 +43,7 @@ void Calculadora::subrtaia(uint16_t valor) {
 
 }
 
-void Calculadora::multiplicar(uint16_t valor) {
+void Calculadora::multiplicar(int16_t valor) {
 
     if(this->debug) {
 
@@ -64,7 +64,7 @@ void Calculadora::multiplicar(uint16_t valor) {
 
 }
 
-void Calculadora::divida(uint16_t valor) {
+void Calculadora::divida(int16_t valor) {
 
     if(this->debug) {
 
@@ -85,7 +85,7 @@ void Calculadora::divida(uint16_t valor) {
 
 }
 
-void Calculadora::acumular(uint16_t valor) {
+void Calculadora::acumular(int16_t valor) {
 
     if(this->debug) {
 
@@ -105,7 +105,7 @@ void Calculadora::acumular(uint16_t valor) {
 
 }
 
-uint16_t Calculadora::getAcumulador() {
+int16_t Calculadora::getAcumulador() {
 
     return this->acumulador;
 

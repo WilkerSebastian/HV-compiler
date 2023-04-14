@@ -10,15 +10,15 @@ class EPI {
 
     private:
 
-        uint16_t valor = 0;
+        int16_t valor = 0;
 
     public:
 
         bool debug;
 
-        void registrar(uint16_t registro);
+        void registrar(int16_t registro);
 
-        uint16_t lerRegistro();
+        int16_t lerRegistro();
 
 };
 

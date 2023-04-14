@@ -2,8 +2,8 @@
 #include <iostream>
 #include <cstdint>
 #include <string>
-
-uint16_t PortaCartoes::lerCartao() {
+ 
+int16_t PortaCartoes::lerCartao() {
 
     std::string input;
 
@@ -26,6 +26,6 @@ uint16_t PortaCartoes::lerCartao() {
 
     }
 
-    return static_cast<uint16_t>(valor);
+    return static_cast<int16_t>(valor);
 
 }

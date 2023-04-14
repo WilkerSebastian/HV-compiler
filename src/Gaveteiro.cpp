@@ -14,7 +14,7 @@ void Gaveteiro::carga(std::vector<std::string> registros) {
 
     }
 
-    for(uint16_t i = 0;i < registros.size();i++) {
+    for(size_t i = 0;i < registros.size();i++) {
 
         if(this->debug) {
 
@@ -35,7 +35,7 @@ void Gaveteiro::carga(std::vector<std::string> registros) {
 
 }
 
-void Gaveteiro::registrar(uint16_t endereco, std::string valor) {
+void Gaveteiro::registrar(int16_t endereco, std::string valor) {
 
     if (this->debug) {
         
@@ -44,7 +44,7 @@ void Gaveteiro::registrar(uint16_t endereco, std::string valor) {
 
     }
 
-    for(uint16_t restrito : this->restritos) {
+    for(int16_t restrito : this->restritos) {
 
         if (restrito == endereco) {
 
@@ -61,7 +61,7 @@ void Gaveteiro::registrar(uint16_t endereco, std::string valor) {
 
 }
 
-std::string Gaveteiro::ler(uint16_t endereco) {
+std::string Gaveteiro::ler(int16_t endereco) {
 
     if (endereco < 0 || endereco > 99) {
 

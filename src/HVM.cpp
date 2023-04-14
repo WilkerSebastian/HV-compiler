@@ -82,7 +82,7 @@ void HVM::assembly(std::string script) {
 
         std::string instrucao = this->chico.proximaInstrucao(this->gaveteiro, this->epi);
 
-        uint16_t EE = std::stoi(instrucao.substr(1, 2));
+        int16_t EE = std::stoi(instrucao.substr(1, 2));
 
         if (copieValorGavetaEE(instrucao)) {
 

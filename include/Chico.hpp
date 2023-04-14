@@ -19,27 +19,27 @@ class Chico {
 
         std::string proximaInstrucao(Gaveteiro gaveteiro, EPI &epi);
 
-        void cpEE(Calculadora &calculadora, Gaveteiro gaveteiro, uint16_t endereco);
+        void cpEE(Calculadora &calculadora, Gaveteiro gaveteiro, int16_t endereco);
  
-        void cpAC(Calculadora calculadora, Gaveteiro &gaveteiro,uint16_t endereco);
+        void cpAC(Calculadora calculadora, Gaveteiro &gaveteiro,int16_t endereco);
 
-        void some(Calculadora &calculadora, Gaveteiro gaveteiro, uint16_t endereco);
+        void some(Calculadora &calculadora, Gaveteiro gaveteiro, int16_t endereco);
 
-        void subtraia(Calculadora &calculadora, Gaveteiro gaveteiro, uint16_t endereco);
+        void subtraia(Calculadora &calculadora, Gaveteiro gaveteiro, int16_t endereco);
 
-        void multiplique(Calculadora &calculadora, Gaveteiro gaveteiro, uint16_t endereco);
+        void multiplique(Calculadora &calculadora, Gaveteiro gaveteiro, int16_t endereco);
 
-        void divida(Calculadora &calculadora, Gaveteiro gaveteiro, uint16_t endereco);
+        void divida(Calculadora &calculadora, Gaveteiro gaveteiro, int16_t endereco);
 
-        void se(Calculadora calculadora, EPI &epi, uint16_t endereco);
+        void se(Calculadora calculadora, EPI &epi, int16_t endereco);
 
-        void leia(Gaveteiro &gaveteiro, PortaCartoes pc, uint16_t endereco);
+        void leia(Gaveteiro &gaveteiro, PortaCartoes pc, int16_t endereco);
 
-        void escreva(Gaveteiro gaveteiro, FolhaDeSaida fs, uint16_t endereco);
+        void escreva(Gaveteiro gaveteiro, FolhaDeSaida fs, int16_t endereco);
 
-        void para(EPI &epi, uint16_t endereco);
+        void para(EPI &epi, int16_t endereco);
 
-        void constante(Calculadora &calculadora, uint16_t valor);
+        void constante(Calculadora &calculadora, int16_t valor);
 
         void pare();
 

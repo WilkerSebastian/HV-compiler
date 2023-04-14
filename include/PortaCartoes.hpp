@@ -9,7 +9,7 @@ class PortaCartoes {
 
         bool debug;
 
-        uint16_t lerCartao();
+        int16_t lerCartao();
 
 };
 
