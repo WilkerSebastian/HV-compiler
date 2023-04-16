@@ -72,7 +72,7 @@ void HVM::assembly(std::string script) {
 
     this->chico.carregarGaveteiro(this->gaveteiro, script);
 
-    for(size_t i = 0;i < 100;i++) {
+    while(true) {
 
         if(this->debug) {
 
