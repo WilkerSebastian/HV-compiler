@@ -22,7 +22,7 @@
 
 </head>
 
-<body class="container-body">
+<body>
 
     <header class="position-static bg-dark">
         <nav class="menu d-flex">
@@ -71,7 +71,15 @@
 
                 <h2 class="title-conteudo fs-3">LINUX e MAC</h2>
 
-                <h3 class="subtitle-conteudo">  1. Clone o repositório: </h3>
+                <h3 class="subtitle-conteudo">  1. Instale a ferramentas de compilação: </h3>
+
+                <p class="text-conteudo">
+                    Para realizar a compitalção do projeto é necessário ter instalado o compilador de C++ o <a href="https://releases.llvm.org/download.html" class="link-conteudo"> clang++ </a>
+                    e ter o <a href="https://www.gnu.org/software/make/" class="link-conteudo"> make </a> para executar a rotina de compilação.
+                </p>
+                <br>
+
+                <h3 class="subtitle-conteudo">  2. Clone o repositório: </h3>
 
                 <p class="text-conteudo">
                     Para começar, é necessário clonar o repositório do compilador HV-compiler. Para isso, abra o terminal e digite o seguinte comando:
@@ -79,7 +87,7 @@
                     <pre><code class="language-bash"> git clone https://github.com/WilkerSebastian/HV-compiler.git </code></pre>
                 </p>
 
-                <h3 class="subtitle-conteudo mt-5"> 2. Entre no diretório do projeto: </h3>
+                <h3 class="subtitle-conteudo mt-5"> 3. Entre no diretório do projeto: </h3>
 
                 <p class="text-conteudo">
                     Depois de clonar o repositório, navegue para o diretório do projeto usando o comando `cd`:
@@ -90,7 +98,7 @@
                 </p>
 
 
-                <h3 class="subtitle-conteudo mt-5"> 3. Compile o código: </h3>
+                <h3 class="subtitle-conteudo mt-5"> 4. Compile o código: </h3>
 
                 <p class="text-conteudo">
                     Execute o comando `make` para compilar o código usando clang++:
@@ -100,7 +108,7 @@
 
                 </p>
 
-                <h3 class="subtitle-conteudo mt-5"> 4. Adicione o HV-compiler ao PATH do seu sistema: </h3>
+                <h3 class="subtitle-conteudo mt-5"> 5. Adicione o HV-compiler ao PATH do seu sistema: </h3>
 
                 <p class="text-conteudo">
                     Para adicionar o HV-compiler ao PATH do seu sistema, execute o seguinte comando:
@@ -112,7 +120,7 @@
                 </p>
 
 
-                <h3 class="subtitle-conteudo mt-5"> 5. Teste o compilador: </h3>
+                <h3 class="subtitle-conteudo mt-5"> 6. Teste o compilador: </h3>
 
                 <p class="text-conteudo">
 
@@ -126,10 +134,64 @@
 
 
             </div>
+            <div class="mx-auto w-75 pt-5">
+
+                <h1 class="title-conteudo">Aprenda</h1>
+
+                <h3 class="subtitle-conteudo mt-5"> O que é HV?</h3>
+
+                <p class="text-conteudo">
+                    HV-2 é um computador hipotético que foi criado com o objetivo de ilustrar de forma didática o 
+                    funcionamento básico de um computador e como ele interage com a linguagem de programação. Esse 
+                    computador usa um conjunto de instruções que se assemelham ao assembly, o que permite uma 
+                    melhor compreensão dos conceitos fundamentais de programação e computação.
+                    <br>
+                    <br>
+
+                    Os computadores HV são uma máquina simples que consiste em uma gaveteiro com 100 gavetas; uma 
+                    calculadora com mostrador e teclado; um pequeno quadro-negro denominado EPI; um porta-cartões; 
+                    uma folha de saída; e um operador do sistema, uma pessoa chamada CHICO, com lápis, apagador de 
+                    quadro-negro e giz.
+                    <br>
+                    <br>
+
+                    O objetivo do HV-2 é permitir que os estudantes de programação tenham uma compreensão mais profunda 
+                    sobre como as linguagens de programação são traduzidas em instruções que um computador pode executar.
+                    Além disso, ele pode ser usado para ensinar conceitos de arquitetura de computadores, como pipeline 
+                    de processamento, organização de memória e interrupções.
+                    <br>
+                    <br>
+
+                    Em resumo, o HV-2 é uma ferramenta útil para quem deseja aprender sobre programação e computação, 
+                    oferecendo uma compreensão mais detalhada sobre o funcionamento básico de um computador e como ele 
+                    interage com a linguagem de programação. Para saber mais sobre o HV-2 e suas instruções, é possível 
+                    acessar o link fornecido acima.
+
+                </p>
+
+            </div>
 
         </section>
 
     </main>
+    <footer class="bg-dark text-light p-3">
+
+        <div class="d-flex justify-content-center mt-2">
+
+            <div class="d-block">
+        
+                <div class="d-flex justify-content-center mb-3">
+
+                    <a href="https://github.com/WilkerSebastian/HV-compiler" class="link-conteudo">GITHUB</a>
+
+                </div>
+                <p class="fs-4">COPYRIGHT © 2023 WILKER SEBASTIAN AFONSO PEREIRA TODOS OS DIREITOS RESERVADOS.</p>
+
+            </div>
+            
+        </div>
+        
+    </footer>
     <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
 

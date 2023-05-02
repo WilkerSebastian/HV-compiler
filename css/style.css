@@ -49,7 +49,7 @@
 
 }
 
-main {
+.container-main {
 
     width: 100%;
     height: 100%;
@@ -107,11 +107,11 @@ body {
 }
 
 button:disabled {
-    
+
     border: none;
-    outline: none; 
-    cursor: not-allowed; 
-}  
+    outline: none;
+    cursor: not-allowed;
+}
 
 button:disabled img {
 
@@ -180,7 +180,7 @@ button:disabled img {
 
 }
 
-#outputArea span{
+#outputArea span {
 
     margin-left: 1rem;
 
@@ -209,10 +209,10 @@ button:disabled img {
     padding: 1.2em 0 0 2em;
 }
 
-.main-menu > li {
+.main-menu>li {
     box-sizing: border-box;
     height: var(--menu-item-size);
-    width: calc(3.5 * var(--menu-item-size));  
+    width: calc(3.5 * var(--menu-item-size));
     line-height: var(--menu-item-size);
     padding: 0 2em;
     margin: 1px;
@@ -224,20 +224,20 @@ button:disabled img {
     user-select: none;
 }
 
-.main-menu > li:not(.with-submenu) {
+.main-menu>li:not(.with-submenu) {
     clip-path: polygon(10% 0%, 0% 100%, 95% 100%, 100% 50%, 95% 0%);
     shape-outside: polygon(10% 0%, 0% 100%, 95% 100%, 100% 50%, 95% 0%);
 }
 
-.main-menu > li:nth-child(2) {
+.main-menu>li:nth-child(2) {
     transform: translateX(-5%);
 }
 
-.main-menu > li:nth-child(3) {
+.main-menu>li:nth-child(3) {
     transform: translateX(-10%)
 }
 
-.main-menu > li:nth-child(4) {
+.main-menu>li:nth-child(4) {
     transform: translateX(-15%)
 }
 
@@ -245,18 +245,18 @@ button:disabled img {
     margin-right: 5px;
 }
 
-.main-menu > li:hover:not(.active) {
+.main-menu>li:hover:not(.active) {
     background: linear-gradient(to right, var(--yellow-color), var(--yellow-text-color));
     color: var(--white-color);
 }
 
-.main-menu > li:active:not(.active),
-.main-menu > li:active:not(.with-submenu){
+.main-menu>li:active:not(.active),
+.main-menu>li:active:not(.with-submenu) {
     background: var(--yellow-text-color);
     color: var(--white-color);
 }
 
-.main-menu > li:hover i:not(li.active) {
+.main-menu>li:hover i:not(li.active) {
     color: #175c58;
 }
 
@@ -296,9 +296,9 @@ button:disabled img {
     display: block;
 }
 
-.submenu > li {
+.submenu>li {
     background: #dedede;
-    border-bottom: 1px solid var(--gray-color); 
+    border-bottom: 1px solid var(--gray-color);
     color: #777;
     padding: 1.2em 1em;
     transition: 0.3s all linear;
@@ -306,11 +306,11 @@ button:disabled img {
     line-height: 0%;
 }
 
-.submenu > li:hover {
+.submenu>li:hover {
     background: var(--gray-color)
 }
 
-.submenu > li:active {
+.submenu>li:active {
     background: var(--white-color);
 }
 
@@ -337,7 +337,7 @@ button:disabled img {
 .text-header {
 
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 15vh;
+    font-size: 7vw;
     color: var(--yellow-color);
     text-align: center;
 
@@ -345,7 +345,7 @@ button:disabled img {
 
 .text-card-header {
 
-    font-size: 3.5vh;
+    font-size: 1.6vw;
 
 }
 
@@ -362,7 +362,7 @@ button:disabled img {
 .subtitle-conteudo {
 
     font-size: 3.5vh;
-    color: var(--subtitle-text);
+    color: #ebce2a;
 
 }
 
@@ -382,14 +382,25 @@ code {
     border: 1px solid #ccc;
     border-radius: 4px;
     padding: 10px;
-  }
-  
-  pre code {
+}
+
+pre code {
     background-color: #333;
     color: #f7f7f7;
     border-color: #333;
-  }
-  
-  /* Importa o tema "okaidia" do Prism.js */
-  @import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-okaidia.min.css');
-  
+}
+
+.link-conteudo {
+
+    color: #ebce2a;
+    text-decoration: none;
+
+}
+
+.link-conteudo:hover {
+
+    color: #fff3af;
+
+}
+
+@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-okaidia.min.css');
