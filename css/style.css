@@ -7,6 +7,7 @@
     --dark-solve: #212121;
     --dark-inter: #323232;
     --light-text: #f7f7f7;
+    --subtitle-text: #ececec;
     --yellow-text: #f0ee74;
     --error-text: #c70b0b;
     --yellow-color: #e7c942;
@@ -358,10 +359,37 @@ button:disabled img {
 
 }
 
-.text-conteudo {
+.subtitle-conteudo {
 
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 15vh;
-    color: var(--yellow-color);
+    font-size: 3.5vh;
+    color: var(--subtitle-text);
 
 }
+
+.text-conteudo {
+
+    font-size: 3vh;
+    color: var(--light-text);
+
+}
+
+code {
+    display: block;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 14px;
+    color: #333;
+    background-color: #f7f7f7;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+  }
+  
+  pre code {
+    background-color: #333;
+    color: #f7f7f7;
+    border-color: #333;
+  }
+  
+  /* Importa o tema "okaidia" do Prism.js */
+  @import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-okaidia.min.css');
+  

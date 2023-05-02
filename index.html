@@ -65,11 +65,62 @@
         </section>
         <section class="container">
 
-            <div class="pt-5">
+            <div class="mx-auto w-75 pt-5">
 
-                <h1 class="title-conteudo"></h1>
+                <h1 class="title-conteudo">Instale</h1>
+
+                <h2 class="title-conteudo fs-3">LINUX e MAC</h2>
+
+                <h3 class="subtitle-conteudo">  1. Clone o repositório: </h3>
 
                 <p class="text-conteudo">
+                    Para começar, é necessário clonar o repositório do compilador HV-compiler. Para isso, abra o terminal e digite o seguinte comando:
+                    <br>
+                    <pre><code class="language-bash"> git clone https://github.com/WilkerSebastian/HV-compiler.git </code></pre>
+                </p>
+
+                <h3 class="subtitle-conteudo mt-5"> 2. Entre no diretório do projeto: </h3>
+
+                <p class="text-conteudo">
+                    Depois de clonar o repositório, navegue para o diretório do projeto usando o comando `cd`:
+
+                    <br>
+                    <pre><code class="language-bash"> cd ./HV-compiler </code></pre>
+
+                </p>
+
+
+                <h3 class="subtitle-conteudo mt-5"> 3. Compile o código: </h3>
+
+                <p class="text-conteudo">
+                    Execute o comando `make` para compilar o código usando clang++:
+                
+                    <br>
+                    <pre><code class="language-bash"> make </code></pre>
+
+                </p>
+
+                <h3 class="subtitle-conteudo mt-5"> 4. Adicione o HV-compiler ao PATH do seu sistema: </h3>
+
+                <p class="text-conteudo">
+                    Para adicionar o HV-compiler ao PATH do seu sistema, execute o seguinte comando:
+                    Este comando adicionará o diretório `./bin` ao PATH do seu sistema. Isso permitirá que você execute o compilador de qualquer diretório do seu sistema.
+
+                    <br>
+                    <pre><code class="language-bash"> echo 'export PATH="$PATH:'$(realpath ./bin)'"' >> ~/.bashrc && source ~/.bashrc </code></pre>
+
+                </p>
+
+
+                <h3 class="subtitle-conteudo mt-5"> 5. Teste o compilador: </h3>
+
+                <p class="text-conteudo">
+
+                    Para testar o compilador, execute o seguinte comando no terminal:
+                    Este comando exibirá a ajuda do compilador e confirmará se a instalação foi concluída com sucesso.
+
+                    <br>
+                    <pre><code class="language-bash"> hvc --help </code></pre>
 
                 </p>
 
