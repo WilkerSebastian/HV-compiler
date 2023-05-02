@@ -16,6 +16,20 @@ GNU/make e clang++ 12 ou superior.
 
 ## Instalação
 
+### WINDOWS
+
+1. baixe o executavel hvc.exe que é o instalador do compilador
+<a href="https://github.com/WilkerSebastian/HV-compiler/releases/download/v1.0.0-hvc-win-x64/HVC.exe">baixe aqui</a>
+
+2. execute o executavel hvc.exe e conclua o processo de instalação
+
+3. execute este comando no terminal para verficar se o compilador foi instalado corretamente
+```
+hvc --help
+```
+
+### LINUX e MAC
+
 clone o repositorio
 
 ```
