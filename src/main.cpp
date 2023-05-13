@@ -17,7 +17,7 @@ using std::cout, std::cerr, std::string, std::vector;
 #define VER 4
 #define DEBUG 5
 #define ERROR -1
-#define VERSION "1.0.0"
+#define VERSION "1.2.5"
 
 // declaração das funções  
 vector<string> parseVectorString(char * args[], int length);

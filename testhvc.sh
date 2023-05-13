@@ -8,11 +8,11 @@ test_unit() {
         echo "$2" > input.txt
 
         # Executa o comando hvc com a entrada de dados redirecionada do arquivo "input.txt" e salva a saída em "output.txt"
-        ./bin/hvc -a ./test/$1.ahv < input.txt > output.txt
+        ./bin/hvc -a ./test/$1.ahv < input.txt > output.txt 2>&1
     else
 
         # Executa o comando hvc com a entrada de dados redirecionada saída em "output.txt"
-        ./bin/hvc -a ./test/$1.ahv > output.txt
+        ./bin/hvc -a ./test/$1.ahv > output.txt 2>&1
 
     fi
 
@@ -42,3 +42,10 @@ test_unit "sum"
 test_unit "sub"
 test_unit "div"
 test_unit "multi"
+
+printf "\nTeste de caso de ERRO:\n"
+test_unit "limite_gaveta"
+test_unit "erro_input" "10000"
+test_unit "restricao_gaveta"
+test_unit "acesso"
+test_unit "epi"
