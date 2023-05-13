@@ -1,0 +1,102 @@
+
+folha de saida: 100
+
+folha de saida: 98
+
+folha de saida: 96
+
+folha de saida: 94
+
+folha de saida: 92
+
+folha de saida: 90
+
+folha de saida: 88
+
+folha de saida: 86
+
+folha de saida: 84
+
+folha de saida: 82
+
+folha de saida: 80
+
+folha de saida: 78
+
+folha de saida: 76
+
+folha de saida: 74
+
+folha de saida: 72
+
+folha de saida: 70
+
+folha de saida: 68
+
+folha de saida: 66
+
+folha de saida: 64
+
+folha de saida: 62
+
+folha de saida: 60
+
+folha de saida: 58
+
+folha de saida: 56
+
+folha de saida: 54
+
+folha de saida: 52
+
+folha de saida: 50
+
+folha de saida: 48
+
+folha de saida: 46
+
+folha de saida: 44
+
+folha de saida: 42
+
+folha de saida: 40
+
+folha de saida: 38
+
+folha de saida: 36
+
+folha de saida: 34
+
+folha de saida: 32
+
+folha de saida: 30
+
+folha de saida: 28
+
+folha de saida: 26
+
+folha de saida: 24
+
+folha de saida: 22
+
+folha de saida: 20
+
+folha de saida: 18
+
+folha de saida: 16
+
+folha de saida: 14
+
+folha de saida: 12
+
+folha de saida: 10
+
+folha de saida: 8
+
+folha de saida: 6
+
+folha de saida: 4
+
+folha de saida: 2
+
+folha de saida: 0
