@@ -33,5 +33,9 @@ test_unit() {
 
 echo "-----TESTE HVC-----"
 
-echo "Iniciando testes de I/O:"
+printf "\nTestes de I/O:"
 test_unit "print" "10"
+test_unit "for_input"
+
+printf "\nTestes da Calculadora:"
+test_unit "sum"

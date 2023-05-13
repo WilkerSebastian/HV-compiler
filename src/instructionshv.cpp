@@ -5,9 +5,9 @@
 
 bool copieValorGavetaEE(std::string token) {
 
-    std::regex regex_pattern("^0[0-9][1-9]$");
+    std::regex regex_pattern("^0[0-9][0-9]$");
 
-    return std::regex_match(token, regex_pattern);
+    return std::regex_match(token, regex_pattern) && token.compare("000") != 0;
 
 }
 bool copieValorAC(std::string token) {
@@ -93,10 +93,8 @@ bool ACrecebeConstante(std::string token) {
 }
 
 bool fimDoPrograma(std::string token) {
-
-    std::regex regex_pattern("^([0-9]{3})$");
-
-    return std::regex_match(token, regex_pattern);
+    
+    return token.compare("000") == 0;
 
 }
 
