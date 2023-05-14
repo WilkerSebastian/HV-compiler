@@ -199,6 +199,104 @@
 
                 </p>
 
+                <h3 class="subtitle-conteudo mt-5"> Assembly HV-2: </h3>
+
+                <p class="text-conteudo">
+
+                    A sintaxe do HV-2 é baseada em instruções de assembly que são escritas em uma linguagem simples 
+                    e fácil de entender. Cada instrução é composta por um código de operação seguido por um endereço 
+                    de memória.
+
+                    <br>
+                    <br>
+
+                    O código de operação é representado por um número de 2 dígitos que indica qual ação o processador 
+                    deve executar, enquanto o endereço de memória é representado por um número de 2 dígitos que indica 
+                    onde o dado ou a instrução deve ser armazenado ou buscado na memória.
+
+                </p>
+
+                <table class="table table-dark p-1">
+                    <thead>
+                      <tr>
+                        <th scope="col">Comando</th>
+                        <th scope="col">Descrição</th>
+                        <th scope="col">Assembler</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">0EE</th>
+                        <td>copie valor da gaveta EE (cEE) para AC</td>
+                        <td>AC←cEE</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">1EE</th>
+                        <td>copie valor do AC (cAC) para gaveta EE</td>
+                        <td>EE←cAC</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">2EE</th>
+                        <td>some cEE ao AC</td>
+                        <td>AC←cAC+cEE</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">3EE</th>
+                        <td>subtraia de AC o cEE</td>
+                        <td>AC←cAC−cEE</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">4EE</th>
+                        <td>multiplique o cAC por cEE</td>
+                        <td>AC←cAC∗cEE</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">5EE</th>
+                        <td>divida o cAC por cEE</td>
+                        <td>AC←cAC/cEE</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">6EE</th>
+                        <td>se cAC &gt; 0, vá para EE</td>
+                        <td>se cAC&gt;0, então EPI←EE</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">7EE</th>
+                        <td>leia um valor e guarda na gaveta EE</td>
+                        <td>leia(EE)</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">8EE</th>
+                        <td>escreva cEE no dispositivo de saída</td>
+                        <td>escreva(cEE)</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">9EE</th>
+                        <td>vá para cEE</td>
+                        <td>EPI←cEE</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">0-N</th>
+                        <td>AC recebe uma constante (truque)</td>
+                        <td>AC←N</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">000</th>
+                        <td>fim do programa</td>
+                        <td>fim</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  
+
+                <h3 class="subtitle-conteudo mt-5"> Como usar compilador: </h3>
+
+                <p class="text-conteudo">
+
+                    Crie
+
+                </p>
+
             </div>
 
         </section>
