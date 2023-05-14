@@ -373,9 +373,18 @@ button:disabled img {
 
 }
 
+.codigo-hv {
+
+    font-family: monospace;
+    display: block;
+    background-color: #212121;
+    color: #f7f7f7;
+
+}
+
 code {
     display: block;
-    font-family: "Courier New", Courier, monospace;
+    font-family: monospace;
     font-size: 14px;
     color: #333;
     background-color: #f7f7f7;
