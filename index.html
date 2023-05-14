@@ -24,14 +24,14 @@
 
 <body>
 
-    <header class="position-static bg-dark">
+    <header class="position-sticky top-0 bg-dark" style="z-index: 5;">
         <nav class="menu d-flex">
             <img src="./img/hvc.png" class="img-navbar">
             <ul class="main-menu">
-                <li>Instale</li>
-                <li>Aprenda</li>
-                <li>Playground</li>
-                <li>github</li>
+                <li><a class="nav-link" href="#instale">Instale</a></li>
+                <li><a class="nav-link" href="#aprenda">Aprenda</a></li>
+                <li><a class="nav-link" href="#play">Playground</a></li>
+                <li><a class="nav-link" href="https://github.com/WilkerSebastian/HV-compiler">github</a></li>
             </ul>
         </nav>
     </header>
@@ -54,9 +54,9 @@
 
                 <img src="./img/hvc-icon.png" class="w-100">
 
-                <div class="d-flex justify-content-center">
+                <div class="d-flex justify-content-center" id="instale">
 
-                    <a href="./pages/playground.html" class="btn btn-warning fs-3">COMECE AGORA</a>
+                    <a href="#instale" class="btn btn-warning fs-3">COMECE AGORA</a>
 
                 </div>
 
@@ -158,10 +158,9 @@
                     Este comando exibirá a ajuda do compilador e confirmará se a instalação foi concluída com sucesso.
 
                     <br>
-                    <pre><code class="language-bash"> hvc --help </code></pre>
+                    <pre><code class="language-bash" id="aprenda"> hvc --help </code></pre>
 
                 </p>
-
 
             </div>
             <div class="mx-auto w-75 pt-5">
@@ -299,7 +298,7 @@
 
                 </p>
 
-                <code class="codigo-hv"> 
+                <code class="codigo-hv" id="play"> 
 
                     750<br>
                     751<br>
