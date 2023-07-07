@@ -1,5 +1,5 @@
+#include "FolhaDeSaida.hpp"
 #include <string>
-#include "../include/FolhaDeSaida.hpp"
 #include <iostream>
 
 void FolhaDeSaida::imprimir(std::string texto) {

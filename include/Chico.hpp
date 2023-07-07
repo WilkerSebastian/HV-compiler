@@ -1,13 +1,12 @@
-#ifndef CHICO_HPP
-#define CHICO_HPP
+#pragma once
 
 #include "PortaCartoes.hpp"
 #include "EPI.hpp"
 #include "FolhaDeSaida.hpp"
 #include "Calculadora.hpp"
 #include "Gaveteiro.hpp"
-#include <cstdint>
 #include <string>
+#include <cstdint>
 
 class Chico {
 
@@ -44,5 +43,3 @@ class Chico {
         void pare();
 
 };
-
-#endif

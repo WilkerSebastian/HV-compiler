@@ -1,10 +1,9 @@
-#ifndef EPI_HPP
-#define EPI_HPP
-#define MAX_ACCESS 100
+#pragma once
 
-#include <stdint.h>
+#define MAX_ACCESS 100
 #include<vector>
 #include<string>
+#include<cstdint>
 
 class EPI {
 
@@ -21,5 +20,3 @@ class EPI {
         int16_t lerRegistro();
 
 };
-
-#endif

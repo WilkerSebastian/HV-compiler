@@ -1,10 +1,8 @@
-#include "../include/Chico.hpp"
-#include "../include/instructionshv.hpp"
+#include "Chico.hpp"
+#include "instructionshv.hpp"
 #include <iostream>
 #include <sstream>
 #include <regex>
-#include <cstdint>
-#include <stdint.h>
 #include <string>
 #include <vector>
 

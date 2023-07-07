@@ -1,4 +1,4 @@
-#include "../include/instructionshv.hpp"
+#include "instructionshv.hpp"
 #include<string>
 #include<iostream>
 #include<regex>

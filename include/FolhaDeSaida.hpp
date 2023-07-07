@@ -1,5 +1,4 @@
-#ifndef FOLHADESAIDA_HPP
-#define FOLHADESAIDA_HPP
+#pragma once
 #include <string>
 
 class FolhaDeSaida {
@@ -11,5 +10,3 @@ class FolhaDeSaida {
         void imprimir(std::string texto);
 
 };
-
-#endif

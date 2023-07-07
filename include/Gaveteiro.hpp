@@ -1,9 +1,7 @@
-#ifndef GAVETEIRO_HPP
-#define GAVETEIRO_HPP
-#include <stdint.h>
+#pragma once
 #include <vector>
-#include <cstdint>
 #include <string>
+#include <cstdint>
 
 #define MAX_ACCESS 100
 
@@ -25,5 +23,3 @@ public:
     std::string ler(int16_t endereco);
 
 };
-
-#endif

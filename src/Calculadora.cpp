@@ -1,10 +1,9 @@
-#include "../include/Calculadora.hpp"
+#include "Calculadora.hpp"
 #include <iostream>
 
 void Calculadora::soma(int16_t valor) {
 
     if(this->debug) {
-
         std::cout << "\nCALCULADORA DEBUG\n"
         << "ACUMULADOR ATUAL: " << this->getAcumulador() << "\n"
         << "OPERAÇÂO: " << this->getAcumulador() << " + " << valor << " = " << (this->getAcumulador() + valor) << "\n";

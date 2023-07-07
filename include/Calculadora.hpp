@@ -1,7 +1,5 @@
-#ifndef CALCULADORA_HPP
-#define CALCULADORA_HPP
-
-#include <stdint.h>
+#pragma once
+#include<cstdint>
 
 class Calculadora {
 
@@ -26,5 +24,3 @@ class Calculadora {
         int16_t getAcumulador();
 
 };
-
-#endif

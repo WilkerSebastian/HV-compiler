@@ -1,7 +1,6 @@
-#ifndef PORTACARTOES_HPP
-#define PORTACARTOES_HPP
-#include <cstdint>
+#pragma once
 #include <string>
+#include <cstdint>
 
 class PortaCartoes {
 
@@ -12,5 +11,3 @@ class PortaCartoes {
         int16_t lerCartao();
 
 };
-
-#endif

@@ -1,6 +1,5 @@
-#include "../include/PortaCartoes.hpp"
+#include "PortaCartoes.hpp"
 #include <iostream>
-#include <cstdint>
 #include <string>
  
 int16_t PortaCartoes::lerCartao() {

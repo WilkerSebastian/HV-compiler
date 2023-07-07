@@ -1,14 +1,12 @@
-#ifndef HVM_HPP
-#define HVM_HPP
-
+#pragma once
 #include "PortaCartoes.hpp"
 #include "FolhaDeSaida.hpp"
 #include "Chico.hpp"
 #include "EPI.hpp"
 #include "Calculadora.hpp"
 #include "Gaveteiro.hpp"
-#include <cstdint>
 #include <string>
+#include <cstdint>
 
 class HVM {
 
@@ -32,14 +30,6 @@ class HVM {
 
         void assembly(std::string script);
 
-        void interpreter(std::string script);
-
-        void parser(std::string script);
-
-        std::string assembler(std::string comando);
-
         void setDebug(bool debug);
 
 };
-
-#endif

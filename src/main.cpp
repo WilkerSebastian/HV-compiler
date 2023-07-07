@@ -4,7 +4,7 @@
 #include <string>
 #include <string.h>
 #include <locale>
-#include "../include/HVM.hpp"
+#include "HVM.hpp"
 
 // definição para uso recorrentes do std
 using std::cout, std::cerr, std::string, std::vector;

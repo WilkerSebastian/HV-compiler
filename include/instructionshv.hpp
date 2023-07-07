@@ -1,6 +1,4 @@
-#ifndef INSTRUCTIONSHV_HPP
-#define INSTRUCTIONSHV_HPP
-
+#pragma once
 #include<string>
 
 bool copieValorGavetaEE(std::string token);
@@ -16,5 +14,3 @@ bool vaParaEE(std::string token);
 bool ACrecebeConstante(std::string token);
 bool fimDoPrograma(std::string token);
 bool isCommand(std::string token);
-
-#endif

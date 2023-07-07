@@ -1,7 +1,6 @@
-#include "../include/EPI.hpp"
+#include "EPI.hpp"
 #include<iostream>
-#include <iterator>
-#include <stdint.h>
+#include<iterator>
 #include<string>
 
 void EPI::registrar(int16_t registro) {
