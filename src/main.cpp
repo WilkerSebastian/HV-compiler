@@ -6,18 +6,20 @@
 #include <locale>
 #include "HVM.hpp"
 
+/* TODO:
+    - Compilação da hvs para ahv 
+    - Parser de ahv para python
+*/
+
 // definição para uso recorrentes do std
 using std::cout, std::cerr, std::string, std::vector;
 
 // pré-processamento para uso no entedimento dos argumentos de linha de comando
-#define INTERPRETER 0
-#define ASSEMBLY 1
-#define PARSER 2
-#define HELPER 3
-#define VER 4
-#define DEBUG 5
-#define ERROR -1
-#define VERSION "1.2.5"
+#define HELPER 3 // opção de ajuda 
+#define VER 4 // opção de versão 
+#define DEBUG 5 // opção de depuração
+#define ERROR -1 // indicativo de erro
+#define VERSION "1.2.5" // versão atual do HVC
 
 // declaração das funções  
 vector<string> parseVectorString(char * args[], int length);
@@ -28,17 +30,17 @@ int extra;
 
 int main(int argc, char* argv[]) {
 
-    std::locale::global(std::locale("pt_BR.UTF-8"));
+    std::locale::global(std::locale("pt_BR.UTF-8")); // definição de encode do programa em UTF-8
 
-    vector<string> args = parseVectorString(argv, argc);
+    vector<string> args = parseVectorString(argv, argc); // argumentos do programa
 
-    int code = decodeArgs(args);
+    int code = decodeArgs(args); // conseguir qual opção foi recebida como argumento do HVC
 
-    HVM hvm;
+    HVM hvm; // objeto HVM que chama as operaçãos de compilção
 
-    hvm.setDebug(extra == DEBUG);
+    hvm.setDebug(extra == DEBUG); // o HVM estará em modo de depuração caso seja 
 
-    switch(code) {
+    switch(code) { // switch de verificação qual opção foi selecionada
 
         case ERROR:
 
@@ -88,7 +90,7 @@ int main(int argc, char* argv[]) {
     return 0;
 }
 
-vector<string> parseVectorString(char * args[], int length) {
+vector<string> parseVectorString(char * args[], int length) { // função para conveter uma matriz de string, num vecotr string
 
     vector<string> resultados;
 
@@ -103,7 +105,7 @@ vector<string> parseVectorString(char * args[], int length) {
 
 }
 
-int decodeArgs(vector<string> args) {
+int decodeArgs(vector<string> args) { // função para processamento dos argumentos do programa
 
     int code = ERROR;
 

@@ -6,10 +6,6 @@
 #include <sstream>
 #include <string>
 
-#define INTERPRETER 0
-#define ASSEMBLY 1
-#define PARSER 2
-
 void HVM::boot(int mode, std::string path) {
  
   std::string script;
@@ -44,7 +40,7 @@ void HVM::assembly(std::string script) {
     
     }
 
-    this->chico.carregarGaveteiro(this->gaveteiro, script);
+    this->chico.carregarGaveteiro(this->gaveteiro, script); // inciando gaveteiro
 
     while(true) {
 
@@ -54,9 +50,9 @@ void HVM::assembly(std::string script) {
 
       }
 
-    std::string instrucao = this->chico.proximaInstrucao(this->gaveteiro, this->epi);
+    std::string instrucao = this->chico.proximaInstrucao(this->gaveteiro, this->epi); // pegando qual instrução deve ser executada
 
-    int16_t EE = std::stoi(instrucao.substr(1, 2));
+    int16_t EE = std::stoi(instrucao.substr(1, 2)); // toda instrução que usa EE tem como pardrão XEE, estou retirando somente a parte do EE
 
     if (copieValorGavetaEE(instrucao)) {
 
@@ -112,7 +108,7 @@ void HVM::assembly(std::string script) {
 
       std::smatch matches;
 
-      std::regex_search(instrucao, matches , std::regex("\\d{1,3}$"));
+      std::regex_search(instrucao, matches , std::regex("\\d{1,3}$")); // regex para retirar os 3 digitos do 0-XXX
 
       EE = std::stoi(matches[0]);
 
@@ -162,7 +158,7 @@ std::string HVM::lerArquivo(std::string path, std::string extensao) {
 
   std::string conteudo;
 
-  if (path.substr(path.find_last_of(".") + 1) != extensao) {
+  if (path.substr(path.find_last_of(".") + 1) != extensao) { // verificação se a extensão é a correta
     std::cerr << "A extensão do arquivo nao é compativel. \n";
     exit(1);
   }

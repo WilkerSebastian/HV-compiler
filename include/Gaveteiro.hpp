@@ -16,10 +16,10 @@ public:
 
     bool debug;
 
-    void carga(std::vector<std::string> registros);
+    void carga(std::vector<std::string> registros); // inicializador do gaveteiro
 
-    void registrar(int16_t endereco, std::string valor);
+    void registrar(int16_t endereco, std::string valor); // alterar valor de uma gaveta
 
-    std::string ler(int16_t endereco);
+    std::string ler(int16_t endereco); // ler o valor de uma gaveta
 
 };

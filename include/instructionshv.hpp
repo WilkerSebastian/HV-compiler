@@ -1,6 +1,12 @@
 #pragma once
 #include<string>
 
+/* TODO: cirar a classe syntax
+    A classe syntax deve ser reponsalvel por realizar o processo
+    de extraçao de termos e regex além de unificar todas essa funções
+    num unico método de int sysntaxAHV(std::string token). 
+*/
+
 bool copieValorGavetaEE(std::string token);
 bool copieValorAC(std::string token);
 bool someEEaoAC(std::string token);

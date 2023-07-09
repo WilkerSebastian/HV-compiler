@@ -8,7 +8,11 @@
 #include <string>
 #include <cstdint>
 
-class HVM {
+#define INTERPRETER 0 // compilação de hv script
+#define ASSEMBLY 1 // intepretação de hv assembly
+#define PARSER 2 // para fazer o parser
+
+class HVM { // HVM(Hipotetic Virtual Machine)
 
     private:
 
@@ -22,14 +26,14 @@ class HVM {
 
     public:
 
-        void boot(int mode, std::string path);
+        void boot(int mode, std::string path); // inicializador do compilador que recebe operação e caminho para script executada
 
-        std::string lerArquivo(std::string path, std::string extensao);
+        std::string lerArquivo(std::string path, std::string extensao); // método para leitura de arquivo
 
-        void escreverArquivo(std::string path, std::string conteudo);
+        void escreverArquivo(std::string path, std::string conteudo); // método para escrita de arquivo
 
-        void assembly(std::string script);
+        void assembly(std::string script); // método intepretação de hv assembly
 
-        void setDebug(bool debug);
+        void setDebug(bool debug); // método para definir se estará em debug o hvm
 
 };
