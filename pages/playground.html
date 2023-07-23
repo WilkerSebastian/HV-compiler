@@ -19,6 +19,7 @@
     />
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/botoes.css">
     <link rel="stylesheet" href="../node_modules/monaco-editor/min/vs/editor/editor.main.css" />
     <script src="../node_modules/monaco-editor/min/vs/loader.js"></script>
 
@@ -29,58 +30,18 @@
     <header class="position-static">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark ps-2">
             <a class="navbar-brand me-3" style="width: 5%;" href="../index.html">
-            
                 <img src="../img/hvc.png" class="img-navbar">
-                HVC
-            
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="./playground.html">Playground</a>
-                    </li>
-                </ul>
-            </div>
+
         </nav>
     </header>
+    <div class="btn-win">
+
+        <button id="btn-code"></button>
+
+    </div>
     <main class="container-main d-flex">
         
-        <section id="commands">
-
-            <div class="command">
-                <button class="btn" id="run">
-
-                    <img src="../img/play.webp" class="command-icon">
-
-                </button>
-            </div>
-            <div class="command" id="cstop">
-                <button class="btn" id="stop">
-
-                    <img src="../img/pause.webp" class="command-icon">
-
-                </button>
-            </div>
-            <div class="command">
-                <button class="btn" id="debug">
-
-                    <img src="../img/debug.png" class="command-icon">
-
-                </button>
-            </div>
-            <div class="command">
-                <button class="btn" id="save">
-
-                    <img src="../img/save.webp" class="command-icon">
-
-                </button>
-            </div>
-
-        </section>
         <section id="view-right">
 
             <div id="editor" class="editor"></div>
@@ -96,6 +57,38 @@
 
         </section>
     </main>
+    <section id="commands">
+
+        <div class="command">
+            <button class="btn" id="debug">
+
+                <img src="../img/debug.png" class="command-icon">
+
+            </button>
+        </div>
+        <div class="command">
+            <button class="btn" id="run">
+
+                <img src="../img/play.webp" class="command-icon">
+
+            </button>
+        </div>
+        <div class="command" id="cstop">
+            <button class="btn" id="stop">
+
+                <img src="../img/pause.webp" class="command-icon">
+
+            </button>
+        </div>
+        <div class="command">
+            <button class="btn" id="save">
+
+                <img src="../img/save.webp" class="command-icon">
+
+            </button>
+        </div>
+
+    </section>
 
     <script>
 

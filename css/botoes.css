@@ -1,0 +1,26 @@
+.btn-win {
+
+    position: relative;
+    background-color: rgb(22, 22, 22);
+    height: 4vh;
+    width: 100%;
+
+}
+
+#btn-code {
+
+    position: absolute;
+    width: 5vw;
+    height: 2.5vh;
+    background-color: #1E1E1E;
+    border-radius: 2%;
+    border: 0.25vh solid #d6d6d6;
+    border-bottom: 0;
+
+}
+
+body {
+
+    max-height: 100vmax;
+
+}
