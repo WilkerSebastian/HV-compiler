@@ -17,7 +17,7 @@ class Calculadora {
       return "sucesso"
     }
   
-    public subrtaia(valor:number) {
+    public subtraia(valor:number) {
       if (this.debug) {
         terminal.addDebug(`CALCULADORA DEBUG<br>ACUMULADOR ATUAL: ${this.acumulador}<br>OPERAÇÂO: ${this.acumulador} - ${valor} = ${this.acumulador - valor}`);
       }
@@ -63,7 +63,7 @@ class Calculadora {
     
         if(valor < 0 || valor > 999) {
     
-            terminal.addError(`Erro na escrita do acumulador, do valor ${valor}, unico valor aceito é entre 0-999`);
+            terminal.addError(`Erro na escrita do valor ${valor} no gaveteiro. Apenas valores entre 0-999 são aceitos.`);
             return "erro"
 
         }

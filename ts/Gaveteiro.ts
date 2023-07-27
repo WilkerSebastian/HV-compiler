@@ -33,7 +33,7 @@ class Gaveteiro {
       for (let i = 0; i < this.restritos.length; i++) {
         if (this.restritos[i] === endereco) {
           const conteudo = this.ler(endereco);
-          terminal.addError(`\nErro tentativa de sobrescrita de gaveta que armazena código fonte\nconteudo da gaveta(${endereco}): ${conteudo}\n`);
+          terminal.addError(`\nErro tentativa de sobrescrita de gaveta que armazena código fonte\nconteúdo da gaveta(${endereco}): ${conteudo}\n`);
           return "erro";
         }
       }
@@ -45,8 +45,8 @@ class Gaveteiro {
   
     public ler(endereco: number){
 
-      if (endereco < 0 || endereco > 99) {
-        console.error(`Erro na leitura do gaveteiro no endereço ${endereco}, tentativa de registro em endereço inexistente\n`);
+      if (endereco < 0 || endereco > 99) {                                   
+        console.error(`Erro na leitura do gaveteiro no endereço ${endereco}, tentativa de leitura em endereço inexistente\n`);
         return "erro";
       }
   

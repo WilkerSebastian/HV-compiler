@@ -46,7 +46,7 @@ class Chico {
 
         const valor = parseInt(gaveteiro.ler(endereco));
     
-        return calculadora.subrtaia(valor);
+        return calculadora.subtraia(valor);
     
     }    
 
@@ -99,7 +99,7 @@ class Chico {
     
     }
     
-    public para(epi:EPI, endereco:number) {
+    public para(epi:EPI, endereco:number) { // Ir para
     
         if (this.debug) {
          
@@ -117,7 +117,7 @@ class Chico {
     
     }
     
-    public pare() {
+    public pare() { //Finalizar
     
         terminal.addText("Programa finalizado com sucesso!");
     

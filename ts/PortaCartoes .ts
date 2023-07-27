@@ -4,7 +4,7 @@ class PortaCartoes {
 
     public async lerCartao() {
 
-        const input = await terminal.scan("Informe o valor de 3 algarimos do cartão: ");
+        const input = await terminal.scan("Informe o valor de 3 algarismos do cartão: ");
         
         if(this.debug) {
     
@@ -16,7 +16,7 @@ class PortaCartoes {
     
         if(valor < 0 || valor > 999) {
     
-            terminal.addError(`Erro na escrita do gaveteiro, do valor ${valor},unico valor aceito é entre 0-999 `);
+            terminal.addError(`Erro na escrita do valor ${valor} no gaveteiro. Apenas valores entre 0-999 são aceitos.`);
             return "erro"
     
         }

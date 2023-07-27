@@ -12,7 +12,7 @@ class Terminal {
 
     public async scan(text:string) {
 
-        this.index++
+        this.index++;
 
         this.input = ""
 

@@ -39,16 +39,16 @@ class HVM {
 
         }
 
-        for (let index = 0; index < script.length; index++) {
+        // for (let index = 0; index < script.length; index++) {
     
-            if(!this.validSyntax(script[index])) {
+        //     if(!this.validSyntax(script[index])) {
 
-                terminal.addError(`Erro de syntax na linha ${index + 1} ${script[index]}`)
-                return
+        //         terminal.addError(`Erro de sintaxe na linha ${index + 1} ${script[index]}`)
+        //         return
 
-            }
+        //     }
             
-        }
+        // }
 
         if(this.debug) {
 
@@ -67,9 +67,19 @@ class HVM {
                 terminal.addDebug("-------------------------------\n")
 
             }
-
+            
             const instrucao = this.chico.proximaInstrucao(this.gaveteiro, this.epi)
             
+            if (RegExp("000").test(instrucao)){
+                retorno = this.chico.pare()
+            }
+
+            if(retorno == "finalizar") {
+
+                return 0
+
+            }
+
             let EE = parseInt(instrucao.substring(1, 3))
 
             if (RegExp("^0[0-9]{2}$").test(instrucao) && instrucao != "000") {
@@ -130,26 +140,16 @@ class HVM {
 
                 retorno = this.chico.constante(this.calculadora, EE)
 
-            } else if(RegExp("000").test(instrucao)) {
-
-                retorno = this.chico.pare()
-
             } else {
 
-                terminal.addError(`erro de sintaxe! comando ${instrucao}`)
+                terminal.addError(`Erro de sintaxe! Linha ${this.epi.lerRegistro()}: ${instrucao}`)
                 return 1
 
             }
 
             if(this.debug && !(retorno == "erro" || retorno == "finalizar")) {
 
-                terminal.addDebug(`-------------------------------<br>DEBUG LOG<br>INSTRUÇÂO: ${instrucao}<br>EE: ${EE}`)
-
-            }
-
-            if(retorno == "finalizar") {
-
-                return 0
+                terminal.addDebug(`-------------------------------<br>DEBUG LOG<br>INSTRUÇÃO: ${instrucao}<br>EE: ${EE}`)
 
             }
 
@@ -157,7 +157,7 @@ class HVM {
 
                 this.runner = false
 
-                return 3
+                return 3 // TRÊS
 
             }
 
@@ -173,7 +173,7 @@ class HVM {
 
         const blob = new Blob([editor.getScript().join("\n")], { type: 'text/plain' });
         const url = URL.createObjectURL(blob);
-        const link = document.createElement('a');
+        const link = document.createElement('a'); // A
 
         link.download = "script.ahv";
         link.href = url;

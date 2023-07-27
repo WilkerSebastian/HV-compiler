@@ -24,7 +24,7 @@ class Calculadora {
         this.acumulador += valor;
         return "sucesso";
     }
-    subrtaia(valor) {
+    subtraia(valor) {
         if (this.debug) {
             terminal.addDebug(`CALCULADORA DEBUG<br>ACUMULADOR ATUAL: ${this.acumulador}<br>OPERAÇÂO: ${this.acumulador} - ${valor} = ${this.acumulador - valor}`);
         }
@@ -62,7 +62,7 @@ class Calculadora {
             terminal.addDebug(`CALCULADORA DEBUG<br>ACUMULADOR ATUAL: ${this.getAcumulador()}<br>OPERAÇÂO: ${this.getAcumulador()} = ${valor}`);
         }
         if (valor < 0 || valor > 999) {
-            terminal.addError(`Erro na escrita do acumulador, do valor ${valor}, unico valor aceito é entre 0-999`);
+            terminal.addError(`Erro na escrita do valor ${valor} no gaveteiro. Apenas valores entre 0-999 são aceitos.`);
             return "erro";
         }
         this.acumulador = valor;
@@ -136,7 +136,7 @@ class Gaveteiro {
         for (let i = 0; i < this.restritos.length; i++) {
             if (this.restritos[i] === endereco) {
                 const conteudo = this.ler(endereco);
-                terminal.addError(`\nErro tentativa de sobrescrita de gaveta que armazena código fonte\nconteudo da gaveta(${endereco}): ${conteudo}\n`);
+                terminal.addError(`\nErro tentativa de sobrescrita de gaveta que armazena código fonte\nconteúdo da gaveta(${endereco}): ${conteudo}\n`);
                 return "erro";
             }
         }
@@ -145,7 +145,7 @@ class Gaveteiro {
     }
     ler(endereco) {
         if (endereco < 0 || endereco > 99) {
-            console.error(`Erro na leitura do gaveteiro no endereço ${endereco}, tentativa de registro em endereço inexistente\n`);
+            console.error(`Erro na leitura do gaveteiro no endereço ${endereco}, tentativa de leitura em endereço inexistente\n`);
             return "erro";
         }
         return this.gavetas[endereco];
@@ -180,12 +180,6 @@ class HVM {
                 alert("Você tentou executar um código vazio!");
                 return 1;
             }
-            for (let index = 0; index < script.length; index++) {
-                if (!this.validSyntax(script[index])) {
-                    terminal.addError(`Erro de syntax na linha ${index + 1} ${script[index]}`);
-                    return;
-                }
-            }
             if (this.debug) {
                 terminal.addDebug("-------------------------------\nDEBUG ASSEMBLY\n-------------------------------\n");
             }
@@ -196,6 +190,12 @@ class HVM {
                     terminal.addDebug("-------------------------------\n");
                 }
                 const instrucao = this.chico.proximaInstrucao(this.gaveteiro, this.epi);
+                if (RegExp("000").test(instrucao)) {
+                    retorno = this.chico.pare();
+                }
+                if (retorno == "finalizar") {
+                    return 0;
+                }
                 let EE = parseInt(instrucao.substring(1, 3));
                 if (RegExp("^0[0-9]{2}$").test(instrucao) && instrucao != "000") {
                     retorno = this.chico.cpEE(this.calculadora, this.gaveteiro, EE);
@@ -232,18 +232,12 @@ class HVM {
                     EE = parseInt(instrucao.match(regex)[0]);
                     retorno = this.chico.constante(this.calculadora, EE);
                 }
-                else if (RegExp("000").test(instrucao)) {
-                    retorno = this.chico.pare();
-                }
                 else {
-                    terminal.addError(`erro de sintaxe! comando ${instrucao}`);
+                    terminal.addError(`Erro de sintaxe! Linha ${this.epi.lerRegistro()}: ${instrucao}`);
                     return 1;
                 }
                 if (this.debug && !(retorno == "erro" || retorno == "finalizar")) {
-                    terminal.addDebug(`-------------------------------<br>DEBUG LOG<br>INSTRUÇÂO: ${instrucao}<br>EE: ${EE}`);
-                }
-                if (retorno == "finalizar") {
-                    return 0;
+                    terminal.addDebug(`-------------------------------<br>DEBUG LOG<br>INSTRUÇÃO: ${instrucao}<br>EE: ${EE}`);
                 }
                 if (!this.runner) {
                     this.runner = false;
@@ -303,13 +297,13 @@ class PortaCartoes {
     }
     lerCartao() {
         return __awaiter(this, void 0, void 0, function* () {
-            const input = yield terminal.scan("Informe o valor de 3 algarimos do cartão: ");
+            const input = yield terminal.scan("Informe o valor de 3 algarismos do cartão: ");
             if (this.debug) {
                 terminal.addDebug(`-----------------------------<br>ENTRADA DE CARTÃO<br> valor recebido: ${input}`);
             }
             const valor = parseInt(input);
             if (valor < 0 || valor > 999) {
-                terminal.addError(`Erro na escrita do gaveteiro, do valor ${valor},unico valor aceito é entre 0-999 `);
+                terminal.addError(`Erro na escrita do valor ${valor} no gaveteiro. Apenas valores entre 0-999 são aceitos.`);
                 return "erro";
             }
             return valor;
@@ -389,7 +383,7 @@ class Chico {
     }
     subtraia(calculadora, gaveteiro, endereco) {
         const valor = parseInt(gaveteiro.ler(endereco));
-        return calculadora.subrtaia(valor);
+        return calculadora.subtraia(valor);
     }
     multiplique(calculadora, gaveteiro, endereco) {
         const valor = parseInt(gaveteiro.ler(endereco));
