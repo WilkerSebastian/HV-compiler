@@ -78,3 +78,13 @@
     height: 100%;
 
 }
+
+.imagem-cont {
+
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 2%;
+    width: 40vw;
+    height: 60vh;
+
+}
