@@ -1,0 +1,28 @@
+:root {
+
+    --dark-light: #414141;
+    --dark-text: #6d6d6d;
+    --dark-solve: #212121;
+    --dark-inter: #323232;
+    --light-text: #f7f7f7;
+    --subtitle-text: #ececec;
+    --yellow-text: #f0ee74;
+    --cont-title: #ffd369;
+    --cont-sub: #f0d770;
+    --error-text: #c70b0b;
+    --yellow-color: #e7c942;
+    --yellow-text-color: #ffee59;
+    --dark-green-color: #2b2a27;
+    --white-color: #494944;
+    --gray-color: #47472a;
+    --menu-item-size: 3vw;
+
+}
+
+* {
+
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    box-sizing: border-box;
+
+}
