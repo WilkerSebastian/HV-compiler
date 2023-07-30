@@ -1,0 +1,32 @@
+@import url("./var.css");
+
+.cabecalho {
+
+    background-color: var(--dark-solve);
+    display: flex;
+
+}
+
+.img-header {
+
+    padding-left: 2vw;
+    width: 7vw;
+    height: 5vw;
+
+}
+
+.btn-menu {
+
+    display: none;
+
+}
+
+@media screen and (max-width: 768px) {
+
+    .btn-menu {
+
+        display: block;
+
+    }
+    
+}

@@ -1,0 +1,52 @@
+@import url("./var.css");
+
+.nav-scope {
+
+    background-color: var(--dark-green-color);
+    height: 100%;
+    width: 100%;
+
+}
+
+.bar {
+
+    width: 100%;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.bar-link {
+
+    list-style: none;
+    padding-left: 1vw;
+    text-decoration: none;
+    color: var(--light-text);
+    width: 100%;
+    background-color: transparent;
+    cursor: pointer;
+
+}
+
+.bar-link:hover {
+
+    color: var(--gray-clor);
+    background-color: var(--dark-text);
+
+}
+
+.bar-link.active {
+
+    color: var(--gray-clor);
+    background-color: var(--yellow-color);
+
+}
+
+.nav-titulo {
+
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: var(--yellow-color);
+    padding: 1vw;
+
+}

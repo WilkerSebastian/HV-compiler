@@ -1,0 +1,90 @@
+@import url("./var.css");
+
+.titulo {
+
+    margin-left: 4vw;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--cont-title);
+    font-size: 5vw;
+
+}
+
+.titulo-center {
+
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--cont-title);
+    font-size: 5vw;
+
+}
+
+.subtitulo {
+
+    margin-left: 4vw;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2.5vw;
+    color: var(--cont-sub);
+
+}
+
+.bloco-texto {
+
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    width: 100%;
+    
+
+}
+
+.bloco-texto p {
+
+    margin-left: 4.5vw;
+    margin-right: 4.5vw;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.3vw;
+    color: var(--subtitle-text);
+
+}
+
+.bloco-texto a {
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.3vw;
+    color: var(--yellow-text);
+
+}
+
+.bloco-texto a:hover {
+
+    color: var(--cont-title);
+    scale: (1.1);
+
+}
+
+.bloco-video {
+
+    margin-left: auto;
+    margin-right: auto;
+    border: 0.2vw solid var(--yellow-text);
+    width: 40vw;
+    height: 50vh;
+
+}
+
+.bloco-video iframe,video {
+
+    width: 100%;
+    height: 100%;
+
+}
+
+.imagem-cont {
+
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 2%;
+    width: 40vw;
+    height: 60vh;
+
+}

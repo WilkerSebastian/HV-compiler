@@ -1,0 +1,42 @@
+@import url("../css/var.css");
+
+* {
+
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+header {
+
+    position: sticky;
+    top: 0;
+    z-index: 5;
+
+}
+
+.container-main {
+
+    height: 100%;
+    width: 100%;
+    min-height: 100vmax;
+    display: flex;
+
+}
+
+.content {
+
+    overflow-y: hidden !important;
+    margin: 1vw;
+    width: 100vmax;
+    height: 100%;
+    max-width: 100%;
+
+}
+
+.nav-content {
+
+    border-right: 1vh solid var(--dark-solve);
+    border-bottom: 1vh solid var(--dark-solve);
+
+}

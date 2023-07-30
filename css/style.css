@@ -1,29 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Lexend+Deca&display=swap');
-
-:root {
-
-    --dark-light: #414141;
-    --dark-text: #6d6d6d;
-    --dark-solve: #212121;
-    --dark-inter: #323232;
-    --light-text: #f7f7f7;
-    --subtitle-text: #ececec;
-    --yellow-text: #f0ee74;
-    --error-text: #c70b0b;
-    --yellow-color: #e7c942;
-    --yellow-text-color: #ffee59;
-    --dark-green-color: #2b2a27;
-    --white-color: #494944;
-    --gray-color: #47472a;
-    --menu-item-size: 3vw;
-
-}
-
-* {
-
-    font-family: Arial, Helvetica, sans-serif;
-
-}
+@import url("./var.css");
 
 .text-alert {
 
@@ -219,7 +195,7 @@ button:disabled img {
 .main-menu>li {
     box-sizing: border-box;
     height: var(--menu-item-size);
-    width: calc(3.5 * var(--menu-item-size));
+    width: calc(4 * var(--menu-item-size));
     line-height: var(--menu-item-size);
     padding: 0 2em;
     margin: 1px;
@@ -247,6 +223,10 @@ button:disabled img {
 .main-menu>li:nth-child(4) {
     transform: translateX(-15%)
 }
+.main-menu>li:nth-child(5) {
+    transform: translateX(-20%)
+}
+
 
 .main-menu i {
     margin-right: 5px;
@@ -321,6 +301,8 @@ button:disabled img {
     background: var(--white-color);
 }
 
+/* index */
+
 .img-navbar {
 
     padding-left: 2vw;
@@ -328,8 +310,6 @@ button:disabled img {
     height: 5vw;
 
 }
-
-/* index */
 
 .intro {
 
