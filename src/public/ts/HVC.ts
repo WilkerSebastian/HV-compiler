@@ -188,4 +188,4 @@ new HVC()
 
 export default HVC
 
-setTimeout(() => {HVC.config.loadConfig(); HVC.feedback.init()}, 250)
+setTimeout(() => {HVC.config.loadConfig(); HVC.feedback.init()}, 500)
