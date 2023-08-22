@@ -1,0 +1,12 @@
+
+folha de saida: 250
+
+folha de saida: 200
+
+folha de saida: 150
+
+folha de saida: 100
+
+folha de saida: 50
+
+folha de saida: 0

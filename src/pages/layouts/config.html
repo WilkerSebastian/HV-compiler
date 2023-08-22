@@ -1,0 +1,71 @@
+<div class="modal fade" id="config-modal" tabindex="-1" aria-labelledby="config-modal-label" aria-hidden="true">
+    <div class="modal-dialog" style="max-width: 100%;">
+      <div class="modal-content" style="width: 80vw; height: 80vh; margin-left: auto; margin-right: auto;">
+        <div class="modal-header bg-warning">
+          <h1 class="modal-title fs-5" id="config-modal-label">Configurações</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body bg-dark">
+
+          <section id="config-editor">
+
+            <h2 class="h4 pb-2 mb-4 text-light border-bottom border-light"> Editor </h2>
+
+            <div class="d-flex">
+
+              <div class="mx-auto">
+                <label for="theme" class="form-label text-light">Tema </label>
+                <select class="form-select w-auto h-50 bg-dark text-light" aria-label="Tema" id="theme">
+                  <option value="vs-dark">Dark</option>
+                  <option value="vs-light">Light</option>
+                </select>
+              </div>
+              <div class="mb-3 mx-auto">
+                <label for="font-size" class="form-label text-light">Tamanho da Fonte </label>
+                <input type="text" class="form-control bg-dark text-light w-50" id="font-size">
+              </div>
+              <div class="mb-3 mx-auto">
+                <label for="font" class="form-label text-light">Fonte </label>
+                <input type="text" class="form-control bg-dark text-success w-50" id="font">
+              </div>
+
+            </div>
+
+          </section>
+          <section id="config-depurador">
+
+            <h2 class="h4 pb-2 mb-4 text-light border-bottom border-light"> Depurador </h2>
+
+            <div class="d-flex">
+
+              <div class="mb-3" style="margin-left: 8%;">
+                <label for="delay" class="form-label text-light">Delay(ms) </label>
+                <input type="text" class="form-control bg-dark w-50 text-light" id="delay">
+              </div>
+
+            </div>
+
+          </section>
+          <section id="config-compilador">
+
+            <h2 class="h4 pb-2 mb-4 text-light border-bottom border-light"> Compilador </h2>
+
+            <div class="d-flex">
+
+              <div class="mb-3" style="margin-left: 8%;">
+                <label for="max-gavetas" class="form-label text-light">gavetas </label>
+                <input type="text" class="form-control bg-dark w-50 text-light" id="max-gavetas">
+              </div>
+
+            </div>
+
+          </section>
+          
+        </div>
+        <div class="modal-footer bg-warning">
+          <button type="button" class="btn btn-dark" data-bs-dismiss="modal">fechar</button>
+          <button type="button" id="aplicar" class="btn btn-dark">Aplicar</button>
+        </div>
+      </div>
+    </div>
+</div>

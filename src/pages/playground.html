@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HV-compiler</title>
+
+    <link rel="shortcut icon" href="../public/img/favicon.ico" type="image/x-icon">
+ 
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    rel="stylesheet"
+    />
+    <link
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../public/css/style.css">
+    <link rel="stylesheet" href="../public/css/botoes.css">
+    <link rel="stylesheet" href="../public/css/debug.css">
+    <script type="module" src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+</head>
+
+<body class="container-body">
+
+    <header class="position-static">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark ps-2">
+            <a class="navbar-brand me-3" style="width: 5%;" href="../index.html">
+                <img src="../public/img/hvc.png" class="img-navbar">
+            </a>
+            
+            <button class="btn-opt" operation="run">executar</button>
+
+            <button class="btn-opt" operation="stop">parar</button>
+
+            <button class="btn-opt" operation="debug">depurar</button>
+
+            <button class="btn-opt" operation="save">exportar</button>
+
+            <button class="btn-opt" operation="import">importar</button>
+
+            <button class="btn-opt" operation="config" data-bs-toggle="modal" data-bs-target="#config-modal">configurações</button>
+
+        </nav>
+    </header>
+    <div class="block-win">
+
+        <div id="btn-code" class="btn-win active" operation="code">
+
+            <div class="d-flex">
+                <img src="../public/img/icon-code.png" class="img-icon ms-auto">
+                <p class="ms-1 me-auto"></p>
+            </div>
+
+        </div>
+        <div class="win-right">
+
+            <div id="btn-ter" class="btn-win active" operation="terminal">
+                <div>
+                    <img src="../public/img/icon-ter.png" class="img-icon">
+                    terminal
+                </div>
+            </div>
+            <div id="btn-dep" class="btn-win" operation="debugger">
+                <div>
+                    <img src="../public/img/icon-dep.png" class="img-icon">
+                    depurador
+                </div>
+            </div>  
+
+        </div>
+
+
+    </div>
+    <main class="container-main d-flex">
+        
+        <section id="view-right">
+
+            <div id="editor" class="editor"></div>
+            <div id="terminal">
+                <div class="content">
+                    <div class="output">
+                      <div id="outputArea"></div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div id="depuracao">
+
+                <div id="instrucoes">
+
+                    <table class="table table-dark" id="gavetas">
+                        <thead>
+                          <tr>
+                            <th scope="col">Gaveta</th>
+                            <th scope="col">Instrução</th>
+                            <th scope="col">Valor</th>
+                            <th scope="col">P.Cartões</th>
+                            <th scope="col">F.Saida</th>
+                            <th scope="col">EPI</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                      </table>
+
+                </div>
+                <div class="status">
+
+                    <div id="acumulador" class="status-item">
+
+                        <p class="title-debug">Acmulador Atual</p>
+                        <div class="medidor-debug">
+                            NULL
+                        </div>
+
+                    </div>
+                    <div id="epi" class="status-item">
+
+                        <p class="title-debug">EPI atual</p>
+                        <div class="medidor-debug">
+                            NULL
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+    </main>
+    <section id="commands">
+
+        <div class="command">
+            <button class="btn" id="debug">
+
+                <img src="../public/img/debug.png" class="command-icon">
+
+            </button>
+        </div>
+        <div class="command">
+            <button class="btn" id="run">
+
+                <img src="../public/img/play.webp" class="command-icon">
+
+            </button>
+        </div>
+        <div class="command" id="cstop">
+            <button class="btn" id="stop">
+
+                <img src="../public/img/pause.webp" class="command-icon">
+
+            </button>
+        </div>
+        <div class="command">
+            <button class="btn" id="save">
+
+                <img src="../public/img/save.webp" class="command-icon">
+
+            </button>
+        </div>
+
+    </section>
+    <section id="modal-sec"></section>
+    <section id="modal-feed"></section>
+    <section id="modal-t"></section>
+
+    <button class="d-none" id="btn-test" data-bs-toggle="modal" data-bs-target="#test-modal"></button>
+
+    <script src="../public/js/dist/app.bundle.js" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

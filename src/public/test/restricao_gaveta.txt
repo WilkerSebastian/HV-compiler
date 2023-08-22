@@ -1,0 +1,3 @@
+
+Erro tentativa de sobrescrita de gaveta que armazena código fonte
+conteúdo da gaveta(0): 0-100

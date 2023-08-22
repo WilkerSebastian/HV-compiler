@@ -1,0 +1,1 @@
+Erro na leitura do gaveteiro no endereço 31, tentativa de leitura em endereço inexistente 

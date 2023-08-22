@@ -1,0 +1,2 @@
+Erro na leitura do gaveteiro no endereço 30, tentativa de leitura em endereço inexistente
+Erro de sintaxe! Linha 31: erro 

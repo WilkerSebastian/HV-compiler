@@ -1,0 +1,1 @@
+Informe o valor de 3 algarismos do cartão: Erro na escrita do valor 10000 no gaveteiro. Apenas valores entre 0-999 são aceitos. 

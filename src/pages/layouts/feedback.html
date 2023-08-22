@@ -1,0 +1,35 @@
+<div class="modal fade" id="feed-modal" tabindex="-1" aria-labelledby="feed-modal-label" aria-hidden="true">
+    <div class="modal-dialog" style="max-width: 100%;">
+      <div class="modal-content" style="width: 50vw; height: 65vh; margin-left: auto; margin-right: auto;">
+        <div class="modal-header bg-warning">
+          <h1 class="modal-title fs-5" id="config-modal-label">FeedBack</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body bg-dark">
+
+            <section id="feedback">
+
+                <form class="row g-3 needs-validation" action="../playground.html" id="form-feed" novalidate>
+
+                    <h1 class="fs-3 text-light text-center">Qual sua opnião sobre essa ferramenta: </h1>
+                    <div class="form-floating">
+                        <textarea class="form-control" placeholder="achei bom mas poderia ter mehlroias na parte etc..." id="conteudo" style="height: 50vh;" name="conteudo" required></textarea>
+                        <div id="conteudo-invalid" class="invalid-feedback">
+                            Coloque algum texto
+                        </div>
+                    </div>    
+                    <div class="d-flex justify-content-center">
+                      <button type="submit" class="btn btn-primary w-25">Enviar</button>
+                    </div>
+                
+                </form>
+
+            </section>
+          
+        </div>
+        <div class="modal-footer bg-warning">
+          <button type="button" class="btn btn-dark" data-bs-dismiss="modal" id="btn-close-feed">fechar</button>
+        </div>
+      </div>
+    </div>
+</div>
