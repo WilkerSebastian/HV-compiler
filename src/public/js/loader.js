@@ -1,4 +1,6 @@
-if(!localStorage.getItem("lexa") && window.location.pathname.split("/")[3] != "conteudo.html") {
+const pathname = window.location.pathname.split("/");
+
+if(!localStorage.getItem("lexa") && pathname[pathname.length - 1] != "conteudo.html") {
 
     let url = window.location.href
 
@@ -6,9 +8,9 @@ if(!localStorage.getItem("lexa") && window.location.pathname.split("/")[3] != "c
 
     url += "conteudo.html"
 
-    const nome = window.location.href.split("/")[5].split(".")[0]
+    const nome = window.location.href.split("/")
 
-    window.location.href = url + "?content=" + nome 
+    window.location.href = url + "?content=" + nome[nome.length - 1].split(".")[0]
 
     localStorage.setItem("lexa", "true")
 
