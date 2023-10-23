@@ -7,10 +7,20 @@ import PortaCartoes from "./PortaCartoes";
 
 export default class Chico {
 
+    public leitura_Inicial(portaCartao:PortaCartoes,script:string[]){
+
+        portaCartao.carregar(script)
+    }
+
     public carregarGaveteiro(gaveterio:Gaveteiro, script:string[]) {
 
         return gaveterio.carga(script)
 
+    }
+
+    public carga(gaveteiro:Gaveteiro, portaCartao:PortaCartoes){
+        
+        return gaveteiro.carga2(portaCartao);
     }
 
     public async proximaInstrucao(gaveteiro:Gaveteiro , epi:EPI) {
@@ -126,6 +136,8 @@ export default class Chico {
     public escreva(gaveteiro:Gaveteiro, fs:FolhaDeSaida, endereco:number) {
     
         const output = gaveteiro.ler(endereco);
+
+        //E se tiver a mesma instrução duas vezes???
 
         const g = gaveteiro.getRestByInstruct(`8${endereco < 10 ? "0" + endereco : endereco}`).toString()
 

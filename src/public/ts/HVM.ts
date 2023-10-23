@@ -44,18 +44,21 @@ export default class HVM {
 
         }
 
-         for (let index = 0; index < script.length; index++) {
+        //  for (let index = 0; index < script.length; index++) {
     
-             if(!this.validSyntax(script[index])) {
+        //      if(!this.validSyntax(script[index])) {
 
-                 HVC.terminal.addError(`Erro de sintaxe na linha ${index + 1} ${script[index]}`)
-                 return
+        //          HVC.terminal.addError(`Erro de sintaxe na linha ${index + 1} ${script[index]}`)
+        //          return
 
-             }
+        //      }
             
-        }
+        // }
 
-        let retorno:string | number = this.chico.carregarGaveteiro(this.gaveteiro, script)
+        this.chico.leitura_Inicial(this.portaCartoes, script);
+        let retorno:string | number = this.chico.carga(this.gaveteiro, this.portaCartoes);
+
+        // let retorno:string | number = this.chico.carregarGaveteiro(this.gaveteiro, script)
 
         if (retorno == "erro") {
             

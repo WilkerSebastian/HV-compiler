@@ -6,7 +6,7 @@ export default class Config {
     public MAX_GAVETA = 100
 
     constructor() {
-
+        
         $("#modal-sec").load("./layouts/config.html")
 
     }

@@ -1,8 +1,10 @@
 import HVC from "./HVC";
+import PortaCartoes from "./PortaCartoes";
 
 export default class Gaveteiro {
   
     private restritos: number[] = [];
+    private ultimoRestrito:number = 0;
     private gavetas: string[];
   
     public carga(registros: string[]) {
@@ -24,8 +26,43 @@ export default class Gaveteiro {
           epi: `${i}`
 
         });
+        
       }
 
+      return "sucesso"
+    }
+
+    public carga2(portaCartao:PortaCartoes){
+
+      let len = portaCartao.conteudo.length
+      let i = 0;
+      let final = false;
+
+      while(i < len && !final){
+        
+        let cartao = portaCartao.conteudo.shift()
+
+        if (cartao){
+          if(this.registrar(i, cartao) == "erro"){
+            return "erro"
+          }
+          this.ultimoRestrito = i;
+        }
+        else{
+          final = true;
+        }
+        if(cartao === "000"){
+          final = true;
+        }
+
+        i++;
+      }
+      console.log(final);
+      
+      console.log(this.gavetas);
+      console.log(portaCartao.conteudo);
+      
+      
       return "sucesso"
     }
   
@@ -37,14 +74,20 @@ export default class Gaveteiro {
         return "erro"
 
       } else {
-  
-        for (let i = 0; i < this.restritos.length; i++) {
-          if (this.restritos[i] === endereco) {
+
+        if(endereco < this.ultimoRestrito){
             const conteudo = this.ler(endereco);
             HVC.terminal.addError(`\nErro tentativa de sobrescrita de gaveta que armazena código fonte\nconteúdo da gaveta(${endereco}): ${conteudo}\n`);
             return "erro";
-          }
         }
+  
+        // for (let i = 0; i < this.restritos.length; i++) {
+        //   if (this.restritos[i] === endereco) {
+        //     const conteudo = this.ler(endereco);
+        //     HVC.terminal.addError(`\nErro tentativa de sobrescrita de gaveta que armazena código fonte\nconteúdo da gaveta(${endereco}): ${conteudo}\n`);
+        //     return "erro";
+        //   }
+        // }
     
         this.gavetas[endereco] = valor;
 
