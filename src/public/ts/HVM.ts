@@ -44,17 +44,6 @@ export default class HVM {
 
         }
 
-        //  for (let index = 0; index < script.length; index++) {
-    
-        //      if(!this.validSyntax(script[index])) {
-
-        //          HVC.terminal.addError(`Erro de sintaxe na linha ${index + 1} ${script[index]}`)
-        //          return
-
-        //      }
-            
-        // }
-
         this.chico.leitura_Inicial(this.portaCartoes, script);
         let retorno:string | number = this.chico.carga(this.gaveteiro, this.portaCartoes);
 

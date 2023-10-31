@@ -6,33 +6,8 @@ export default class Gaveteiro {
     private restritos: number[] = [];
     private ultimoRestrito:number = 0;
     private gavetas: string[];
-  
-    public carga(registros: string[]) {
-  
-      for (let i = 0; i < registros.length; i++) {
-        const res = this.registrar(i , registros[i]);
-        
-        if (res == "erro") {
-        
-          return "erro"
 
-        }
-
-        this.restritos.push(i);
-        HVC.debugger.adicionarGaveteiro({
-
-          gaveta: `${i}`,
-          instrucao: registros[i],
-          epi: `${i}`
-
-        });
-        
-      }
-
-      return "sucesso"
-    }
-
-    public carga2(portaCartao:PortaCartoes){
+    public carga(portaCartao:PortaCartoes){
 
       let len = portaCartao.conteudo.length
       let i = 0;
@@ -56,12 +31,7 @@ export default class Gaveteiro {
         }
 
         i++;
-      }
-      console.log(final);
-      
-      console.log(this.gavetas);
-      console.log(portaCartao.conteudo);
-      
+      } 
       
       return "sucesso"
     }
@@ -80,14 +50,6 @@ export default class Gaveteiro {
             HVC.terminal.addError(`\nErro tentativa de sobrescrita de gaveta que armazena código fonte\nconteúdo da gaveta(${endereco}): ${conteudo}\n`);
             return "erro";
         }
-  
-        // for (let i = 0; i < this.restritos.length; i++) {
-        //   if (this.restritos[i] === endereco) {
-        //     const conteudo = this.ler(endereco);
-        //     HVC.terminal.addError(`\nErro tentativa de sobrescrita de gaveta que armazena código fonte\nconteúdo da gaveta(${endereco}): ${conteudo}\n`);
-        //     return "erro";
-        //   }
-        // }
     
         this.gavetas[endereco] = valor;
 

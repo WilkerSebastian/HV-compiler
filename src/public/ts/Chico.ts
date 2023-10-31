@@ -12,15 +12,10 @@ export default class Chico {
         portaCartao.carregar(script)
     }
 
-    public carregarGaveteiro(gaveterio:Gaveteiro, script:string[]) {
-
-        return gaveterio.carga(script)
-
-    }
 
     public carga(gaveteiro:Gaveteiro, portaCartao:PortaCartoes){
         
-        return gaveteiro.carga2(portaCartao);
+        return gaveteiro.carga(portaCartao);
     }
 
     public async proximaInstrucao(gaveteiro:Gaveteiro , epi:EPI) {
