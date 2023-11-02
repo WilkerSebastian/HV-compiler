@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-	mode: "development",
+	mode: process.env.NODE_ENV ?? "development",
 	entry: {
 		app: path.resolve("./src/public/ts/HVC.ts"),
 		'editor.worker': 'monaco-editor/esm/vs/editor/editor.worker.js',
