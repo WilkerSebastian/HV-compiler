@@ -1,5 +1,5 @@
 import * as $ from "jquery"
-import HVC from "./HVC"
+import HVC from "../HVC"
 
 export default class Config {
 

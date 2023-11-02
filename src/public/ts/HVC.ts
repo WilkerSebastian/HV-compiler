@@ -1,12 +1,12 @@
 import * as $ from "jquery";
-import Debugger from "./Debugger";
-import HVM from "./HVM";
-import Terminal from "./Terminal";
-import Editor from "./Editor";
-import Config from "./Config";
-import GUI from "./GUI";
-import FeedBack from "./FeedBack";
-import Tester from "./Tester";
+import Debugger from "./UI/Debugger";
+import HVM from "./hvm/HVM";
+import Terminal from "./UI/Terminal";
+import Editor from "./UI/Editor";
+import Config from "./UI/Config";
+import GUI from "./UI/GUI";
+import FeedBack from "./UI/FeedBack";
+import Tester from "./test/Tester";
 
 class HVC {
 

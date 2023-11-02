@@ -1,5 +1,5 @@
 import * as $ from "jquery"
-import HVC from "./HVC"
+import HVC from "../HVC"
 
 export default class Tester {
 
@@ -40,12 +40,12 @@ export default class Tester {
         await HVC.hvm.run()
 
         const out = await this.loadFile(script + ".txt")
-
+        
         return {
             
-            result: out.trim() == Tester.output.trim(),
-            expected: out.trim(),
-            obtained: Tester.output.trim()
+            result: out.replace(/\r|\n/g, "").trim() == Tester.output.replace(/\r|\n/g, "").trim(),
+            expected: out.replace(/\r|\n/g, "").trim(),
+            obtained: Tester.output.replace(/\r|\n/g, "").trim()
 
         }
 
@@ -56,6 +56,8 @@ export default class Tester {
         const res = await this.compare(test)
 
         Tester.output = ""
+
+        console.log(res.result, res.expected, res.obtained);
 
         if (res.result) {
             
