@@ -4,23 +4,37 @@ import PortaCartoes from "./PortaCartoes";
 export default class Gaveteiro {
   
     private ultimoRestrito:number = 0;
-    private gavetas: string[];
+    private gavetas:string[];
 
-    public carga(portaCartao:PortaCartoes){
+    public getGavetas() {
+
+      return this.gavetas
+
+    }
+
+    public async carga(portaCartao:PortaCartoes){
 
       let len = portaCartao.conteudo.length
       let i = 0;
       let final = false;
 
       while(i < len && !final){
+
+        if (HVC.debugger.debug) {
+             
+          await HVC.sleep(HVC.debugger.timeout);
+
+        }
         
         let cartao = portaCartao.conteudo.shift()
+        HVC.debugger.atualizarPortaCartoes(portaCartao.conteudo)
 
         if (cartao){
           if(this.registrar(i, cartao) == "erro"){
             return "erro"
           }
           this.ultimoRestrito = i;
+          HVC.debugger.atualizarGaveteiro(this.gavetas, this.ultimoRestrito)
         }
         else{
           final = true;
@@ -51,6 +65,7 @@ export default class Gaveteiro {
         }
     
         this.gavetas[endereco] = valor;
+        HVC.debugger.atualizarGaveteiro(this.gavetas, this.ultimoRestrito)
 
       }
 

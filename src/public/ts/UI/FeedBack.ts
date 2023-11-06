@@ -45,15 +45,19 @@ export default class FeedBack {
 
     public mostrar() {
 
-        if(!localStorage.getItem("feedback")) {
+        /* REMOVIDO ATÈ ARRUMAR O FEEDBACK
 
-            setTimeout(() => {
+            if(!localStorage.getItem("feedback")) {
 
-                $("#btn-feed").trigger("click")
+                setTimeout(() => {
 
-            }, 10000)
+                    $("#btn-feed").trigger("click")
 
-        }
+                }, 10000)
+
+            }
+
+        */
 
     }
 

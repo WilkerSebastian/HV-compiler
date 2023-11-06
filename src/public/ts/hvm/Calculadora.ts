@@ -14,6 +14,7 @@ export default class Calculadora {
       this.acumulador += valor;
 
       return "sucesso"
+      
     }
   
     public subtraia(valor:number) {
@@ -44,6 +45,7 @@ export default class Calculadora {
       }
       this.acumulador = parseInt((parseInt(this.acumulador.toString()) / parseInt(valor.toString())).toString());
       return "sucesso"
+
     }
 
     public acumular(valor:number) {
@@ -63,7 +65,7 @@ export default class Calculadora {
     
     public getAcumulador() {
     
-        return this.acumulador;
+      return this.acumulador;
     
     }
 

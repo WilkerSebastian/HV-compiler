@@ -30,6 +30,7 @@
 
 .command {
 
+    margin-top: 7.5%;
     padding: 1rem;
     display: flex;
     justify-content: center;
@@ -44,8 +45,8 @@
 
 .command-icon {
 
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 3.5rem;
+    height: 3.5rem;
 
 }
 
@@ -71,13 +72,14 @@ body {
 #commands {
 
     position: absolute;
-    right: 37%;
+    left: 38%;
+    right: 40%;
     bottom: 0;
     border-bottom: 15vh solid #131313;
     border-left: 35px solid transparent;
     border-right: 35px solid transparent;
     height: 0;
-    width: 27vw;
+    width: 23vw;
     display: flex;
     z-index: 100;
 

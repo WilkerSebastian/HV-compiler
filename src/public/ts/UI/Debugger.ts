@@ -4,81 +4,96 @@ export default class Debugger {
 
     private acumulador = $("#acumulador").children(".medidor-debug");
     private epi = $("#epi").children(".medidor-debug");
-    private gaveteiro = $("#gavetas").children("tbody");
-    private gavetas = new Array<Gaveta>(100)
     public timeout = 200
     public debug = false
 
-    public atualizarEPI(intrucao:string) {
+    public viewState(state?:string, color?:string) {
 
-        if (this.debug) this.epi.text(intrucao)
+        if (state && this.debug) {
+
+            $("#state").css("display", "flex")
+            $("#state").css("background-color", color)
+
+            $("#state").html(state)
+
+            $("#state").append(`
+                <div class="spinner-grow m-auto mx-2" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            `)
+            
+            return
+
+        }
+
+        $("#state").css("display", "none")
 
     }
 
-    public autalizarAcumulador(intrucao:string) {
+    public atualizarEPI(instrucao:string) {
 
-        if (this.debug) this.acumulador.text(intrucao)
+        if (this.debug) this.epi.text(instrucao)
+
+        $(".bg-content").addClass("inst-debug")
+        $(".bg-content").removeClass("bg-content")
+
+        $(`#${parseInt(instrucao)}`).children("td").addClass("bg-content").removeClass("inst-debug")
 
     }
 
-    public intrepetando(epi:number) {
+    public atualizarAcumulador(valor:string) {
 
-        if(this.debug) {
-
-            $(".bg-content").removeClass("bg-content")
-
-            $(`#${epi}`).children("td").addClass("bg-content")
-
+        if (this.debug) { 
+            
+            this.acumulador.text(valor)
+        
         }
 
     }
 
-    private validationTable(table:Gaveta) {
+    public atualizarPortaCartoes(buffer:string[]) {
 
-        table.instrucao = table.instrucao ?? " "
-        table.valor = table.valor ?? " "
-        table.pc = table.pc ?? " "
-        table.fs = table.fs ?? " "
-        table.epi = table.epi ?? " "
+        if (this.debug) {
+        
+            const pc = $("#portaCartoes").children("tbody")
+
+            pc.html(" ")
+
+            buffer.forEach(conteudo => {
+
+                pc.append(`
+                    <tr>
+                        <td>${conteudo}</td>
+                    </tr>
+                `)
+
+            })  
+        }   
 
     }
 
-    public adicionarGaveteiro(table:Gaveta) {
+    public atualizarGaveteiro(gaveteiro:string[], ultimoRestrito:number) {
 
         if (this.debug) {
+            
+            const gavetas = $("#gavetas").children("tbody")
 
-            this.validationTable(table)
+            gavetas.html(" ")
 
-            if(this.gavetas.filter(g => g.gaveta == table.gaveta).length == 0) {
+            for (let i = 0; i < gaveteiro.length; i++) {
 
-                this.gaveteiro.append(`
-                <tr id="${table.gaveta}">
-                    <td>${table.gaveta}</td>
-                    <td>${table.instrucao}</td>
-                    <td>${table.valor}</td>
-                    <td>${table.pc}</td>
-                    <td>${table.fs}</td>
-                    <td>${table.epi}</td>
-                </tr>`)
+                if (gaveteiro[i]) {
+                 
+                    gavetas.append(`
+                        <tr id="${i}">
+                            <td>${i}</td>
+                            <td class="${i > ultimoRestrito ? "data-debug" : "inst-debug"}">${gaveteiro[i]}</td>
+                        </tr>
+                    `)
 
-                this.gavetas[parseInt(table.gaveta)] = table
-
-            } else {
-
-                const i = parseInt(table.gaveta);
-
-                this.gaveteiro.children(`#${table.gaveta}`).html(`
-                    <td>${this.gavetas[i].gaveta != table.gaveta ? table.gaveta : this.gavetas[i].gaveta}</td>
-                    <td>${this.gavetas[i].instrucao != table.instrucao ? table.instrucao : this.gavetas[i].instrucao}</td>
-                    <td>${this.gavetas[i].valor != table.valor ? table.valor : this.gavetas[i].valor}</td>
-                    <td>${this.gavetas[i].pc != table.pc ? table.pc : this.gavetas[i].pc}</td>
-                    <td>${this.gavetas[i].fs != table.fs ? table.fs : this.gavetas[i].fs}</td>
-                    <td>${this.gavetas[i].epi != table.epi ? table.epi : this.gavetas[i].epi}</td>
-                `)
-
+                }
+            
             }
-
-            this.gavetas[parseInt(table.gaveta)] = table
 
         }
 
@@ -86,20 +101,11 @@ export default class Debugger {
 
     public clear() {
 
-        this.gavetas = new Array<Gaveta>(100)
         this.atualizarEPI("null")
-        this.autalizarAcumulador("null")
-        this.gaveteiro.html("")
+        this.atualizarAcumulador("null")
+        $("#portaCartoes").children("tbody").html(" ")
+        $("#gavetas").children("tbody").html(" ")
 
     }
 
-}
-
-export interface Gaveta {
-    gaveta?:string, 
-    instrucao?:string, 
-    valor?:string, 
-    pc?:string, 
-    fs?:string, 
-    epi?:string
 }

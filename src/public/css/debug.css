@@ -2,14 +2,17 @@
 
 .title-debug {
 
+    text-align: center;
+    font-size: 1.2rem;
     color: var(--cont-title);
 
 }
 
 .medidor-debug {
 
+    text-align: center;
+    font-size: 1.5rem;
     color: var(--light-text);
-    
 
 }
 
@@ -24,7 +27,17 @@
 
 .status-item {
 
+    padding: 5%;
+    border: 1.8px solid var(--cont-title);
     margin-top: 2%;
+
+}
+
+#tabelas {
+
+    max-height: 50%;
+    overflow-y: auto;
+    display: flex;
 
 }
 
@@ -53,5 +66,36 @@
 
     margin-left: 50%;
     margin-right: auto;
+
+}
+
+#state {
+    position: absolute;
+    top: 1%;
+    left: 40%;
+    font-size: 2vw;
+    padding: 0.35vw;
+    width: auto;
+    color: rgb(221, 221, 227);
+    display: none;
+    border-radius: 3.5%;
+    z-index: 300;
+}
+
+#portaCartoes {
+
+    margin-left: 3%;
+
+}
+
+.data-debug {
+
+    color: #FA8FF9 !important;
+
+}
+
+.inst-debug {
+
+    color: #4EE2FA !important;
 
 }

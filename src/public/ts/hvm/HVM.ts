@@ -44,18 +44,22 @@ export default class HVM {
 
         }
 
-        this.chico.leitura_Inicial(this.portaCartoes, script);
-        let retorno:string | number = this.chico.carga(this.gaveteiro, this.portaCartoes);
+        HVC.debugger.viewState("Estado de carga", "rgb(163, 0, 0")
 
-        // let retorno:string | number = this.chico.carregarGaveteiro(this.gaveteiro, script)
-
+        await this.chico.leitura_Inicial(this.portaCartoes, script);
+        let retorno:string | number = await this.chico.carga(this.gaveteiro, this.portaCartoes);
+        
         if (retorno == "erro") {
             
             return -1
 
         }
 
+        HVC.debugger.viewState("Estado de execução", "#09B509")
+
         do {
+
+            HVC.debugger.atualizarEPI(String(this.epi.lerRegistro()))
 
             if (HVC.debugger.debug) {
              
@@ -145,7 +149,7 @@ export default class HVM {
             if (HVC.debugger.debug) {
                 
                 HVC.debugger.atualizarEPI(`${this.epi.lerRegistro()}`)
-                HVC.debugger.autalizarAcumulador(`${this.calculadora.getAcumulador()}`)
+                HVC.debugger.atualizarAcumulador(`${this.calculadora.getAcumulador()}`)
 
             }
 

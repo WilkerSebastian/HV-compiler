@@ -95,7 +95,9 @@ class HVC {
 
             HVC.feedback.mostrar()
         
-            const exit = await HVC.hvm.run() 
+            const exit = await HVC.hvm.run()
+            
+            HVC.debugger.viewState()
                     
             if (!isNaN(exit)) {
                             
@@ -111,6 +113,8 @@ class HVC {
             HVC.terminal.controle = false
         
             HVC.hvm.runner = false
+
+            HVC.debugger.viewState()
         
             setTimeout(() => HVC.terminal.controle = true, 10)
         
@@ -123,7 +127,9 @@ class HVC {
 
             HVC.debugger.clear()
         
-            const exit = await HVC.hvm.run() 
+            const exit = await HVC.hvm.run()
+
+            HVC.debugger.viewState()
                 
             if (!isNaN(exit)) {
                         

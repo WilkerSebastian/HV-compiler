@@ -4,10 +4,11 @@ export default class PortaCartoes {
 
     public conteudo:string[] = []
 
-    public carregar(script: string[]){
+    public async carregar(script: string[]){
         
         script.forEach(e =>{
             this.conteudo.push(e);
+            HVC.debugger.atualizarPortaCartoes(this.conteudo)
         })
         
     }
@@ -19,6 +20,7 @@ export default class PortaCartoes {
         if (this.conteudo.length > 0) {
 
             valor = parseInt(this.conteudo.shift())
+            HVC.debugger.atualizarPortaCartoes(this.conteudo)
 
         }
         else {
