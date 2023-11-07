@@ -19,7 +19,7 @@
 .status {
 
     width: 100%;
-    height: 25%;
+    height: 50%;
     border-top: 2.5px solid var(--cont-title);
     display: flex;
 
@@ -27,6 +27,7 @@
 
 .status-item {
 
+    max-height: 50%;
     padding: 5%;
     border: 1.8px solid var(--cont-title);
     margin-top: 2%;
@@ -88,14 +89,26 @@
 
 }
 
-.data-debug {
+.data-debug-dark {
 
     color: #FA8FF9 !important;
 
 }
 
-.inst-debug {
+.inst-debug-dark {
 
     color: #4EE2FA !important;
+
+}
+
+.data-debug-light {
+
+    color: #BBABF4  !important;
+
+}
+
+.inst-debug-light {
+
+    color: #FAAB5A  !important;
 
 }

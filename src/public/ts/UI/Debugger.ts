@@ -30,14 +30,23 @@ export default class Debugger {
 
     }
 
-    public atualizarEPI(instrucao:string) {
+    public atualizarEPI(instrucao:string | number) {
+
+        instrucao = Number(instrucao)
 
         if (this.debug) this.epi.text(instrucao)
 
-        $(".bg-content").addClass("inst-debug")
-        $(".bg-content").removeClass("bg-content")
+        $(`#${instrucao - 1}`)
+        .children("td")
+        .removeClass("bg-content")
+        .eq(1)
+        .addClass("inst-debug")
 
-        $(`#${parseInt(instrucao)}`).children("td").addClass("bg-content").removeClass("inst-debug")
+        $(`#${instrucao}`)
+        .children("td")
+        .addClass("bg-content")
+        .eq(1)
+        .removeClass("inst-debug")
 
     }
 
@@ -102,7 +111,7 @@ export default class Debugger {
     public clear() {
 
         this.atualizarEPI("null")
-        this.atualizarAcumulador("null")
+        this.atualizarAcumulador("0")
         $("#portaCartoes").children("tbody").html(" ")
         $("#gavetas").children("tbody").html(" ")
 

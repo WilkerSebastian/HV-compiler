@@ -373,6 +373,12 @@ button:disabled img {
 
 }
 
+.bg-light-text {
+
+    background-color: var(--light-text);
+
+}
+
 .codigo-hv {
 
     font-family: monospace;

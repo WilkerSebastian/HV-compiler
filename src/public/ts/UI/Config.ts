@@ -154,6 +154,9 @@ export default class Config {
 
             $(".table").addClass("table-dark")
             $(".table").removeClass("table-light")
+
+            $(".status-item").addClass("bg-dark")
+            $(".status-item").removeClass("bg-light-text")
             
         } else {
 
@@ -166,7 +169,11 @@ export default class Config {
             $(".table").addClass("table-light")
             $(".table").removeClass("table-dark")
 
+            $(".status-item").removeClass("bg-dark")
+            $(".status-item").addClass("bg-light-text")
+
         }
+
         $(".btn-opt").css("color", `var(${dark ? "--subtitle-text" : "--dark-text"})`)
 
         $(".block-win").css("background-color", dark ? "#222222" : "#C3C0C4")
@@ -186,8 +193,11 @@ export default class Config {
         $("#depuracao").css("color", dark ? "var(--light-text)" : "var(--dark-solve)")
         $("#depuracao").css("background-color", dark ? "var(--dark-solve)" : "var(--light-text)")
 
-        $(".title-debug").css("color", dark ? "var(--cont-title" : "var(--btn-dark)")
-        $(".medidor-debug").css("color", dark ? "var(--cont-title" : "var(--btn-dark)")
+        $(".title-debug").css("color", dark ? "var(--cont-title)" : "var(--dark-solve)")
+        $(".medidor-debug").css("color", dark ? "var(--cont-title)" : "var(--dark-solve)");
+
+        $(".inst-debug").css("color", dark ? "#4EE2FA" : "#FAAB5A")
+        $(".data-debug").css("color", dark ? "#FA8FF9" : "#BBABF4")
 
     }
 
