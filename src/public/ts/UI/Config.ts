@@ -1,5 +1,6 @@
 import * as $ from "jquery"
 import HVC from "../HVC"
+import GUI from "./GUI"
 
 export default class Config {
 
@@ -144,6 +145,8 @@ export default class Config {
 
     private changeTheme(dark:boolean) {
 
+        GUI.DARK = dark
+
         if (dark) {
 
             $(".bg-light").addClass("bg-dark")
@@ -195,9 +198,6 @@ export default class Config {
 
         $(".title-debug").css("color", dark ? "var(--cont-title)" : "var(--dark-solve)")
         $(".medidor-debug").css("color", dark ? "var(--cont-title)" : "var(--dark-solve)");
-
-        $(".inst-debug").css("color", dark ? "#4EE2FA" : "#FAAB5A")
-        $(".data-debug").css("color", dark ? "#FA8FF9" : "#BBABF4")
 
     }
 

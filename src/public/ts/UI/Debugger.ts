@@ -1,4 +1,5 @@
 import * as $ from "jquery"
+import GUI from "./GUI";
 
 export default class Debugger {
 
@@ -103,6 +104,8 @@ export default class Debugger {
                 }
             
             }
+
+            GUI.instTheme()
 
         }
 

@@ -1,14 +1,19 @@
 import * as $ from "jquery"
 
+
+// TODO: adicionar a manipulação de temas para essa classe
 export default class GUI {
 
     public static WIDTH = window.innerWidth
     public static HEIGHT = window.innerHeight
     public static MOBILE = GUI.WIDTH < 768;
+    public static DARK:boolean = false
 
     private code = $(".edtior")
     private terminal = $("#terminal")
     private debugger = $("#depuracao")
+
+    
 
     constructor() {
 
@@ -134,6 +139,13 @@ export default class GUI {
             } 
 
         }
+    }
+
+    public static instTheme() {
+
+        $(".inst-debug").css("color", this.DARK ? "#4EE2FA" : "#FAAB5A")
+        $(".data-debug").css("color", this.DARK ? "#FA8FF9" : "#BBABF4")
+
     }
 
 }
