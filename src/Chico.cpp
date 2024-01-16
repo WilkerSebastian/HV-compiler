@@ -25,7 +25,7 @@ void Chico::carregarGaveteiro(Gaveteiro &gaveterio, std::string script) {
         if(isCommand(linha_limpa)) {
 
             std::cerr << "\nErro comando não identificado, na linha  " << index << " : " << linha << "\n";
-            exit(1);
+            exit(EXIT_FAILURE);
 
         } 
 

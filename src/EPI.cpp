@@ -8,7 +8,7 @@ void EPI::registrar(int16_t registro) {
     if (registro > 99) {
 
         std::cerr << "Erro de sobrecarga da pilha, limite de 100 registros" << "\n";
-        exit(1);
+        exit(EXIT_FAILURE);
         
     }
 

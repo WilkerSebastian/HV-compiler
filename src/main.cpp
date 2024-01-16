@@ -45,7 +45,7 @@ int main(int argc, char* argv[]) {
         case ERROR:
 
             cerr << "Erro nos argumentos de execução, use \'hvc --help\' para ver como usar o HVC \n";
-            exit(1);
+            exit(EXIT_FAILURE);
 
         break;
         case INTERPRETER:

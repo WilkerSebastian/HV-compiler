@@ -4,27 +4,40 @@
  
 int16_t PortaCartoes::lerCartao() {
 
-    std::string input;
+    int valor;
 
-    std::cout << "\nInforme o valor de 3 algarimos do cartão: ";
-    std::getline(std::cin, input);
+    if (this->conteudo.empty()) {
+        
+        std::string input;
 
-    if(this->debug) {
+        std::cout << "\nInforme o valor de 3 algarimos do cartão: ";
+        std::getline(std::cin, input);
 
-        std::cout << "ENTRADA DE CARTÂO\n"
-        << "valor recebido: " << input << "\n";
+        valor = std::stoi(input);
+
+        if(this->debug) {
+
+            std::cout << "ENTRADA DE CARTÂO\n"
+            << "valor recebido: " << input << "\n";
+
+        }
 
     }
+    
+    return static_cast<int16_t>(valor);
 
-    int valor = std::stoi(input);
+}
 
-    if(valor < 0 || valor > 999) {
+void PortaCartoes::inserirCartao(int16_t valor) {
+
+    if (valor < 0 || valor > 999) {
 
         std::cerr << "Erro na escrita do gaveteiro, do valor " << valor << ", unico valor aceito é entre 0-999" << "\n";
-        exit(1);
+        exit(EXIT_FAILURE);        
 
     }
+    
 
-    return static_cast<int16_t>(valor);
+    this->conteudo.push(valor)
 
 }

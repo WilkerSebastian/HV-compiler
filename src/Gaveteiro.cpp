@@ -50,7 +50,7 @@ void Gaveteiro::registrar(int16_t endereco, std::string valor) {
             std::string conteudo = this->ler(endereco);
 
             std::cerr << "\nErro tentativa de sobrescrita de gaveta que armazena código fonte\nconteudo da gaveta(): " << conteudo << "\n";
-            exit(1);
+            exit(EXIT_FAILURE);
         
         }
 
@@ -65,7 +65,7 @@ std::string Gaveteiro::ler(int16_t endereco) {
     if (endereco < 0 || endereco > 99) {
 
         std::cerr << "Erro na leitura do gaveteiro no endereço " << endereco << " , tentativa de registro em endereço inexistente\n";
-        exit(1);
+        exit(EXIT_FAILURE);
         
     }
 

@@ -123,7 +123,7 @@ void HVM::assembly(std::string script) {
     else {
 
         std::cerr << "\nerro de sintaxe! comando " << instrucao << "\n";
-        exit(1);
+        exit(EXIT_FAILURE);
 
     }
     if(this->debug) {
@@ -150,7 +150,7 @@ void HVM::escreverArquivo(std::string path, std::string conteudo) {
     file.close();
   } catch (std::exception &e) {
     std::cerr << "\nErro: " << e.what() << "\n";
-    exit(1);
+    exit(EXIT_FAILURE);
   }
 }
 
@@ -160,13 +160,13 @@ std::string HVM::lerArquivo(std::string path, std::string extensao) {
 
   if (path.substr(path.find_last_of(".") + 1) != extensao) { // verificação se a extensão é a correta
     std::cerr << "A extensão do arquivo nao é compativel. \n";
-    exit(1);
+    exit(EXIT_FAILURE);
   }
 
   std::ifstream arquivo(path, std::ios::in | std::ios::out | std::ios::binary);
   if (!arquivo.is_open()) {
     std::cerr << "Nao foi possivel abrir o arquivo " << path << "\n";
-    exit(1);
+    exit(EXIT_FAILURE);
   }
 
   std::string linha;
