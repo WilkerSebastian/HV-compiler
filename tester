@@ -1,0 +1,48 @@
+#!/bin/python3
+
+import os
+import subprocess
+
+def run_test(compiler_cmd, input_file, expected_output_file):
+    # Construa o caminho completo para os arquivos de entrada e saída esperada
+    input_path = os.path.join("test/input", input_file)
+    expected_output_path = os.path.join("test/expected_outputs", expected_output_file)
+    stdin_path = os.path.join("test/stdin", input_file + "_stdin.txt")
+
+    # Execute o compilador com o arquivo de entrada
+    process = 0
+
+    try:
+
+        stdin_file = open(stdin_path, 'r')
+
+        process = subprocess.Popen([compiler_cmd, input_path], stdin=stdin_file, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+
+    except FileNotFoundError:
+
+        process = subprocess.Popen([compiler_cmd, input_path], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+
+    compiler_output, compiler_error = process.communicate()
+
+    # Leia o resultado esperado do arquivo
+    with open(expected_output_path, 'r') as expected_output_file:
+        expected_output = expected_output_file.read()
+
+    # Compare a saída do compilador com o resultado esperado
+    if compiler_output == expected_output or compiler_error == expected_output:
+        print(f"Teste {input_file} passou!")
+    else:
+        print(f"Teste {input_file} falhou.")
+        print(f"Saída do programa:\n{compiler_output if compiler_output else compiler_error}")
+        print(f"Resultado esperado:\n{expected_output}")
+
+if __name__ == "__main__":
+    compiler_command = "./bin/hvc"  # comando do compilador
+
+    # Lista de arquivos de teste na pasta 'tests'
+    test_files = os.listdir("test/input")
+
+    for test_file in test_files:
+        expected_output_file = test_file + "_expected.txt"
+
+        run_test(compiler_command, test_file, expected_output_file)
