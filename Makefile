@@ -1,22 +1,39 @@
-CXX		  := clang++
-CXX_FLAGS := -Wall -Wextra -std=c++17 -g
+# Variáveis do compilador
+CXX = clang++
+CXXFLAGS = -std=c++17 -Wall -Iinclude
 
-BIN		:= bin
-SRC		:= src
-INCLUDE	:= include
-LIB		:= lib
+# Diretórios
+SRCDIR = src
+INCDIR = include
+BINDIR = bin
 
-LIBRARIES	:=
-EXECUTABLE	:= hvc
+# Encontrar todos os arquivos .cpp recursivamente
+SRCS := $(shell find $(SRCDIR) -name '*.cpp')
 
+# Gerar lista de objetos a partir dos arquivos .cpp
+OBJS := $(patsubst $(SRCDIR)/%.cpp,$(BINDIR)/%.o,$(SRCS))
 
-all: $(BIN)/$(EXECUTABLE)
+# Nome do executável
+TARGET = $(BINDIR)/hvc
 
-run: clean all
-	./$(BIN)/$(EXECUTABLE)
+# Regra padrão
+all: $(TARGET)
 
-$(BIN)/$(EXECUTABLE): $(SRC)/*.cpp
-	$(CXX) $(CXX_FLAGS) -I$(INCLUDE) -L$(LIB) $^ -o $@ $(LIBRARIES)
+# Regra para criar o executável
+$(TARGET): $(OBJS)
+	$(CXX) $(CXXFLAGS) $^ -o $@
 
+# Regra para compilar os objetos
+$(BINDIR)/%.o: $(SRCDIR)/%.cpp
+	@mkdir -p $(dir $@)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+# Remove arquivos temporários
 clean:
-	-rm $(BIN)/*
+	rm -rf $(BINDIR)/*
+
+# Faz a recompilação do zero
+rebuild: clean all
+
+# Define as regras que não são arquivos
+.PHONY: all clean rebuild

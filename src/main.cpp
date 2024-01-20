@@ -2,17 +2,20 @@
 #include <string>
 #include <stdexcept>
 #include <regex>
+#include <fstream>
 #include <filesystem>
 #include <locale>
+#include "hvm/HVM.hpp"
 #include "Enums/CLI.hpp"
 
 const std::string VER = "1.5.3";
 
-CLI commandLine(int len, char const * argv[]);
-void version();
-void help();
-
 int main(int argc, char const * argv[]) {
+
+    std::string readFile(std::string path);
+    CLI commandLine(int len, char const * argv[]);
+    void version();
+    void help();
 
     std::locale::global(std::locale("pt_BR.UTF-8"));
 
@@ -39,6 +42,19 @@ int main(int argc, char const * argv[]) {
             break;
 
         case EXECUTABLE:
+
+            try {
+
+                HVM hvm;
+                
+                std::string file = readFile(argv[1]);
+
+                hvm.run(file);
+
+            } catch(const std::exception& e) {
+                std::cerr << e.what() << '\n';
+            }
+            
 
             break;
     }
@@ -81,5 +97,25 @@ void help() {
     << "Flags: \n\n"
     << "  -v, --version                  Imprime a versão\n"
     << "  -h, --help                     Mostra os comandos do hvc\n";
+
+}
+
+std::string readFile(std::string path) {
+
+    std::string content;
+
+    std::ifstream file(path);
+
+     if (file.is_open()) {
+        
+        content = std::string((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
+
+        file.close();
+
+
+    } else 
+        throw std::runtime_error("Erro ao abrir o arquivo: " + path + '\n');
+    
+    return content;
 
 }

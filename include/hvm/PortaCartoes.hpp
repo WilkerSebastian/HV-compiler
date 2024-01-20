@@ -10,9 +10,7 @@ class PortaCartoes {
 
     public:
 
-        void inserir(const std::string cartao);
+        void inserir(const std::vector<std::string>& cartoes);
 
         std::string lerCartao();
-
-        void solicitarCartao();
 };

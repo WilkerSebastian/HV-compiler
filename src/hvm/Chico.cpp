@@ -50,10 +50,8 @@ void Chico::se(Calculadora& calculadora, EPI& epi, int endereco) {
 void Chico::leia(Gaveteiro& gaveteiro, PortaCartoes& pc, int endereco) {
     std::string valor = pc.lerCartao();
 
-    if (valor.empty()) {
-        pc.solicitarCartao();
+    if (valor.empty()) 
         valor = pc.lerCartao();
-    }
 
     gaveteiro.registrar(endereco, valor);
 }

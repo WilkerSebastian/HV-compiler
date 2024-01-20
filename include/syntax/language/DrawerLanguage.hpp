@@ -5,6 +5,6 @@
 #include <string>
 
 class DrawerLanguage : public Syntax {
-public:
-    Token lexer(const std::string& script) override;
+    public:
+        Token lexer(const std::string& script) override;
 };

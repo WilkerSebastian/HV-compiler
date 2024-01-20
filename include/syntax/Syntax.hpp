@@ -1,5 +1,6 @@
 #pragma once
 
+#include "syntax/tokens/Token.hpp"
 #include <string>
 
 class Syntax {

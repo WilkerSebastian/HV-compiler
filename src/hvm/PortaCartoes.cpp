@@ -2,9 +2,10 @@
 #include <stdexcept>
 #include <iostream>
 
-void PortaCartoes::inserir(const std::string cartao) {
+void PortaCartoes::inserir(const std::vector<std::string>& cartoes) {
 
-    this->conteudo.push(cartao);
+    for (int i = 0; i < cartoes.size(); i++)
+        this->conteudo.push(cartoes[i]);
 
 }
 
@@ -15,9 +16,10 @@ std::string PortaCartoes::lerCartao() {
     if (this->conteudo.empty()) 
         std::cin >> valor;
     
-    else
+    else {
         valor = this->conteudo.front();
         this->conteudo.pop();
+    }
     
     return valor;
 
