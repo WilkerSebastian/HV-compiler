@@ -1,3 +1,0 @@
-
-Informe o valor de 3 algarimos do cartão: 
-folha de saida: 10
