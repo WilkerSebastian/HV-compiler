@@ -81,21 +81,31 @@ hvc_uri=$github_repo/releases/latest/download/hvc-$target.zip
 
 install_dir="$HOME/.hvc"
 
-mkdir $install_dir
+mkdir -p $install_dir
 
-curl -o "$install_dir/" $hvc_uri
+curl -Lo "$install_dir/hvc-$target.zip" $hvc_uri
 
-unzip "$install_dir/hvc-$target.zip"
+# Verificar se o download foi bem-sucedido
+if [ $? -ne 0 ]; then
+    error "Falha ao baixar o arquivo $hvc_uri. Verifique sua conexão com a internet."
+fi
+
+# Verificar se o arquivo é um arquivo zip válido
+if ! unzip -tq "$install_dir/hvc-$target.zip" >/dev/null; then
+    error "O arquivo baixado não é um arquivo zip válido."
+fi
+
+unzip -o "$install_dir/hvc-$target.zip" -d "$install_dir"
 
 if [[ $target = linux-x64 ]]; then
 
-    echo "export PATH=\$PATH:$install_dir/bin/hvc" >> ~/.bashrc
+    echo "export PATH=\$PATH:$install_dir/bin" >> ~/.bashrc
 
     source ~/.bashrc
 
 else
 
-    echo "export PATH=\$PATH:$install_dir/bin/hvc" >> ~/.bash_profile
+    echo "export PATH=\$PATH:$install_dir/bin" >> ~/.bash_profile
 
     source ~/.bash_profile
 
