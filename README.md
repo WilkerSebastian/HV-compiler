@@ -30,7 +30,7 @@ hvc --help
 No limux é necessário somente executar o script de instalação, através deste comando.
 
 ```bash
-curl -fsSL https://hv-compiler.onrender.com | bash
+curl -fsSL https://hv-compiler.onrender.com/install | bash
 ```
 
 ### MAC
