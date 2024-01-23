@@ -1,0 +1,1 @@
+Valor inválido de escrita na gaveta [50]: 10000
