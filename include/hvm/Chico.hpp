@@ -14,7 +14,7 @@ class Chico {
 
         std::string proximaInstrucao(Gaveteiro& gaveteiro, EPI& epi);
 
-        std::string cpEE(Calculadora& calculadora, Gaveteiro& gaveteiro, int endereco);
+        void cpEE(Calculadora& calculadora, Gaveteiro& gaveteiro, int endereco);
 
         void cpAC(Calculadora& calculadora, Gaveteiro& gaveteiro, int endereco);
 

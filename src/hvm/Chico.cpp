@@ -11,9 +11,9 @@ std::string Chico::proximaInstrucao(Gaveteiro& gaveteiro, EPI& epi) {
     return gaveteiro.ler(registroAtual);
 }
 
-std::string Chico::cpEE(Calculadora& calculadora, Gaveteiro& gaveteiro, int endereco) {
+void Chico::cpEE(Calculadora& calculadora, Gaveteiro& gaveteiro, int endereco) {
     int valor = std::stoi(gaveteiro.ler(endereco));
-    return calculadora.acumular(valor);
+    calculadora.acumular(valor);
 }
 
 void Chico::cpAC(Calculadora& calculadora, Gaveteiro& gaveteiro, int endereco) {

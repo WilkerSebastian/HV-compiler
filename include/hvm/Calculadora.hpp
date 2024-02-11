@@ -15,7 +15,7 @@ class Calculadora {
 
         void divida(int valor);
 
-        std::string acumular(int valor);
+        void acumular(int valor);
 
         int getAcumulador();
 };
