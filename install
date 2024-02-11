@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 set -euo pipefail
 
 if [[ ${OS:-} = Windows_NT ]]; then
@@ -81,6 +82,8 @@ hvc_uri=$github_repo/releases/latest/download/hvc-$target.zip
 
 install_dir="$HOME/.hvc"
 
+shell="$(ps -p $$ -o comm=)"
+
 mkdir -p $install_dir
 
 curl -Lo "$install_dir/hvc-$target.zip" $hvc_uri
@@ -99,9 +102,19 @@ unzip -o "$install_dir/hvc-$target.zip" -d "$install_dir"
 
 if [[ $target = linux-x64 ]]; then
 
-    echo "export PATH=\$PATH:$install_dir/bin" >> ~/.bashrc
+    if [[ $shell = "zsh" ]]; then
 
-    source ~/.bashrc
+        echo 'export PATH="$PATH:'$install_dir'/bin"' >> ~/.zshrc
+
+        source ~/.zshrc
+
+    else 
+
+        echo 'export PATH="$PATH:'$install_dir'/bin"' >> ~/.bashrc
+
+        source ~/.bashrc
+
+    fi
 
 else
 
