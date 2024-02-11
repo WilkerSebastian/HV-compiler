@@ -8,7 +8,7 @@
 #include "hvm/HVM.hpp"
 #include "Enums/CLI.hpp"
 
-const std::string VER = "1.5.3";
+const std::string VER = "1.6.0";
 
 int main(int argc, char const * argv[]) {
 
