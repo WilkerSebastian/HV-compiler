@@ -6,7 +6,7 @@ export default class Calculadora {
   
     public soma(valor:number) {
       
-      if (valor < 0 || valor + this.acumulador > 999) {
+      if (valor + this.acumulador > 999) {
         HVC.terminal.addError(`Erro na operação ${this.acumulador} + ${valor} = ${valor + this.acumulador}, único valor aceito como resultado é entre 0-999`);
         return "erro"
       }
@@ -19,7 +19,7 @@ export default class Calculadora {
   
     public subtraia(valor:number) {
       
-      if (valor < 0 || valor + this.acumulador > 999) {
+      if (this.acumulador - valor > 999) {
         HVC.terminal.addError(`Erro na operação ${this.acumulador} - ${valor} = ${valor - this.acumulador}, único valor aceito como resultado é entre 0-999`);
         return "erro"
       }
@@ -29,7 +29,7 @@ export default class Calculadora {
   
     public multiplicar(valor:number) {
       
-      if (valor < 0 || valor + this.acumulador > 999) {
+      if (valor * this.acumulador > 999) {
         HVC.terminal.addError(`Erro na operação ${this.acumulador} * ${valor} = ${valor * this.acumulador}, único valor aceito como resultado é entre 0-999`);
         return "erro"
       }
@@ -39,11 +39,13 @@ export default class Calculadora {
   
     public divida(valor:number) {
 
-      if (valor < 0 || valor + this.acumulador > 999) {
+      if (valor < 0 || valor / this.acumulador > 999) {
         HVC.terminal.addError(`Erro na operação ${this.acumulador} / ${valor} = ${valor / this.acumulador}, único valor aceito como resultado é entre 0-999`);
         return "erro"
       }
-      this.acumulador = parseInt((parseInt(this.acumulador.toString()) / parseInt(valor.toString())).toString());
+      // this.acumulador = parseInt((parseInt(this.acumulador.toString()) / parseInt(valor.toString())).toString());
+
+      this.acumulador = Math.floor(this.acumulador / valor)
       return "sucesso"
 
     }
